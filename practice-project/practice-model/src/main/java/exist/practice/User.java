@@ -19,6 +19,7 @@ public class User {
     private Date birthDate;
     private String homeAddress;
     private String contactNumber;
+    private boolean isEnabled = true;
     @ManyToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER)
     @JoinTable( name = "UserOrgs", joinColumns = @JoinColumn( name = "userId" ),
             inverseJoinColumns = @JoinColumn( name = "orgId" ) )
@@ -163,6 +164,14 @@ public class User {
 	
 	public Set<Org> getOrgs() {
 		return orgs;
+	}
+	
+	public void setEnabled(boolean isEnabled) {
+		this.isEnabled = isEnabled;
+	}
+	
+	public boolean isEnabled() {
+		return isEnabled;
 	}
     
 }
