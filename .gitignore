@@ -2,4 +2,5 @@
 *.project
 target
 .svn
+.settings
 !.gitignore
