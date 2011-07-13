@@ -8,6 +8,7 @@ import exist.practice.User;
 public class Org {
     
 	@Id
+	@GeneratedValue
     private long orgId = -1;
     private String orgName;
     @ManyToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER)

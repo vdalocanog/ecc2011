@@ -8,6 +8,7 @@ import javax.persistence.*;
 public class User {
     
 	@Id
+	@GeneratedValue
     private long userId = -1;
     private String userName;
     private String password;
