@@ -72,6 +72,7 @@ public class GenericDaoImpl<T> implements GenericDao<T> {// extends
 	@Transactional(readOnly = false)
 	public List<?> findLike(String table, String column, String value) {
 		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
