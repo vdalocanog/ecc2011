@@ -20,12 +20,12 @@
 	</properties>
 
 	<dependencies>
-	
+
 		<dependency>
-			    <groupId>org.springframework</groupId>
-			    <artifactId>spring-test</artifactId>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
 		</dependency>
-		
+
 		<!-- MySQL Connector Java -->
 		<dependency>
 			<groupId>mysql</groupId>
@@ -115,10 +115,16 @@
 		</dependency>
 
 		<!-- Joda Time -->
-        <dependency>
-            <groupId>joda-time</groupId>
-            <artifactId>joda-time</artifactId>
-        </dependency>
-        
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.6.1</version>
+		</dependency>
+
 	</dependencies>
 </project>
