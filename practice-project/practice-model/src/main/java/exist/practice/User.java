@@ -19,11 +19,11 @@ public class User {
 	private char mi;
 	private String emailAddress;
 	private String gender;
-	
-	@Column(nullable=false)
+
+	@Column(nullable = false)
 	@Temporal(TemporalType.DATE)
-    private DateTime birthDate;
-    
+	private DateTime birthDate;
+
 	private String homeAddress;
 	private String contactNumber;
 	private boolean isEnabled = true;
