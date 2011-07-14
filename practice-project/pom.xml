@@ -23,7 +23,7 @@
 		<spring.version>3.0.5.RELEASE</spring.version>
 		<java.version>1.5</java.version>
 		<junit.version>4.8.2</junit.version>
-		<!-- <slf4j.version>1.5.2</slf4j.version> -->
+		<slf4j.version>1.5.10</slf4j.version>
 	</properties>
 
 	<dependencyManagement>
@@ -128,14 +128,13 @@
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-context</artifactId>
 				<version>${spring.version}</version>
-				<!--
 				<exclusions>
+					<!-- Exclude Commons Logging in favor of SLF4j -->
 					<exclusion>
 						<groupId>commons-logging</groupId>
 						<artifactId>commons-logging</artifactId>
 					</exclusion>
 				</exclusions>
-				-->
 			</dependency>
 
 			<dependency>
@@ -194,7 +193,6 @@
 			</dependency>
 
 			<!-- logging -->
-			<!--
 			<dependency>
 				<groupId>org.slf4j</groupId>
 				<artifactId>slf4j-api</artifactId>
@@ -212,14 +210,6 @@
 				<version>${slf4j.version}</version>
 				<scope>runtime</scope>
 			</dependency>
-			-->
-
-			<dependency>
-				<groupId>org.slf4j</groupId>
-				<artifactId>slf4j-api</artifactId>
-				<version>1.6.1</version>
-			</dependency>
-
 			<dependency>
 				<groupId>log4j</groupId>
 				<artifactId>log4j</artifactId>
