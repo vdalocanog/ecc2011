@@ -14,41 +14,39 @@
           <input type="hidden" name="userId" />
           
           <label for="userName">User Name*</label>
-          <input type="input name="username" />
+          <input type="input name="username" /> <br />
 
           <label for="password">Password*</label>
-          <input type="password" name="password" />   
+          <input type="password" name="password" /> <br />
           
           <label for="confirmPassword">Confirm Password*</label>
-          <input type="password name="confirmPassword" />
+          <input type="password name="confirmPassword" /> <br />
           
           <label for="lastName">Last Name*</label>
-          <input type="input name="lastName" />/>
+          <input type="input name="lastName" /> <br />
           
           <label for="firstName">First Name*</label>
-          <input type="input name="firstName" />
+          <input type="input name="firstName" /> <br />
           
           <label for="mi">M.I.*</label>
-          <input type="input name="mi" size="1" maxlength="1" />
+          <input type="input name="mi" size="1" maxlength="1" /> <br />
           
           <label for="emailAddress">Email Address*</label>
-          <input type="input name="emailAddress" />
+          <input type="input name="emailAddress" /> <br />
           
           <label for="gender">Gender*</label>
-          <input type="radiobutton" name='gender' value='Male' label='Male' />
-          <input type="radiobutton" name='gender' value='Female' label='Female' />
+          <input type="radio" name='gender' value='Male' label='Male' />
+          <input type="radio" name='gender' value='Female' label='Female' /> <br />
           
           <label for="birthDate">Birth Date</label>
-          <input type="text" id="birthDate" name="birthDate" />
+          <input type="text" id="birthDate" name="birthDate" /> <br />
 			
           <label for="homeAddress">Home Address</label>
-          <input type="input" name="homeAddress" />
+          <input type="input" name="homeAddress" /> <br />
 
           <label for="contactNumber">Contact Number</label>
-          <input type="input" name="contactNumber" /> (numbers only.)
-          
-          
-        </table>
+          <input type="input" name="contactNumber" /> (numbers only.) <br />
+
         
 		<div class="error">* required fields</div>
 		

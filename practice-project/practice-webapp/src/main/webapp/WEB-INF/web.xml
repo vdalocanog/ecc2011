@@ -17,19 +17,19 @@
 
 	<!-- ========================== SERVLETS ======================================== -->
 	<servlet>
-		<servlet-name>webAppMiniProjServlet</servlet-name>
+		<servlet-name>webAppMiniProj</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 
 	<!-- ========================== SERVLET MAPPINGS ================================= -->
 	<servlet-mapping>
-		<servlet-name>webAppMiniProjServlet</servlet-name>
+		<servlet-name>webAppMiniProj</servlet-name>
 		<url-pattern>*.htm</url-pattern>
 	</servlet-mapping>
 
 	<servlet-mapping>
-		<servlet-name>webAppMiniProjServlet</servlet-name>
+		<servlet-name>webAppMiniProj</servlet-name>
 		<url-pattern>/dwr/*</url-pattern>
 	</servlet-mapping>
 
