@@ -21,7 +21,7 @@ public class User {
 	private String gender;
 
 	@Column(nullable = false)
-	@Temporal(TemporalType.DATE)
+	/*@Temporal(TemporalType.DATE)*/
 	private DateTime birthDate;
 
 	private String homeAddress;

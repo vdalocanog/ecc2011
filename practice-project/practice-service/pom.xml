@@ -29,10 +29,6 @@
 			<artifactId>practice-dao</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>exist.practice</groupId>
-			<artifactId>practice-dao</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<scope>test</scope>

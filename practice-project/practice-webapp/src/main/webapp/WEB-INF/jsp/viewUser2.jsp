@@ -35,7 +35,7 @@
 					    		<li><a href="viewMembers.htm">org.orgName</a></li>
 					    	</c:forEach>
 					    </ul>
-					    <p>Ganahan ka mo-apil ug lain nga organisasiyon? Pislita <a href="#">ni</a>.</p>
+					    <p>Ganahan pa ka mo-apil ug lain nga organisasiyon? Pislita <a href="#">ni</a>.</p>
 					</c:when>
 					<c:otherwise>
 					    <p>Wala kay organisasyon nga gi-apilan! 

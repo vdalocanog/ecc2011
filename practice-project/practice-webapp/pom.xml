@@ -15,7 +15,11 @@
 	<name>practice-webapp Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
-
+		<dependency>
+			<groupId>exist.practice</groupId>
+			<artifactId>practice-service</artifactId>
+		</dependency>
+		
 		<!-- Javax Servlet -->
 
 		<dependency>
@@ -76,6 +80,11 @@
 			<groupId>org.hibernate.javax.persistence</groupId>
 			<artifactId>hibernate-jpa-2.0-api</artifactId>
 			<scope>compile</scope>
+		</dependency>
+		
+		<dependency>
+		    <groupId>jta</groupId>
+		    <artifactId>jta</artifactId>
 		</dependency>
 
 		<!-- Spring Dependencies -->
