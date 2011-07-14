@@ -4,6 +4,8 @@ import java.util.*;
 
 import javax.persistence.*;
 
+import org.joda.time.*;
+
 @Entity
 public class User {
 
@@ -17,7 +19,11 @@ public class User {
 	private char mi;
 	private String emailAddress;
 	private String gender;
-	private Date birthDate;
+	
+	@Column(nullable=false)
+	@Temporal(TemporalType.DATE)
+    private DateTime birthDate;
+    
 	private String homeAddress;
 	private String contactNumber;
 	private boolean isEnabled = true;
@@ -148,7 +154,7 @@ public class User {
 	/**
 	 * @return the birthDate
 	 */
-	public Date getBirthDate() {
+	public DateTime getBirthDate() {
 		return birthDate;
 	}
 
@@ -156,7 +162,7 @@ public class User {
 	 * @param birthDate
 	 *            the birthDate to set
 	 */
-	public void setBirthDate(Date birthDate) {
+	public void setBirthDate(DateTime birthDate) {
 		this.birthDate = birthDate;
 	}
 
