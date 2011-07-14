@@ -16,6 +16,10 @@
 	<url>http://maven.apache.org</url>
 
 	<dependencies>
+		<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context</artifactId>
+		</dependency>
 		<!-- Model -->
 		<dependency>
 			<groupId>exist.practice</groupId>
@@ -34,7 +38,7 @@
 			<artifactId>spring-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>hsqldb</groupId>
 			<artifactId>hsqldb</artifactId>

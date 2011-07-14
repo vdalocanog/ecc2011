@@ -20,8 +20,9 @@ public class User {
 	private String emailAddress;
 	private String gender;
 
-	@Column(nullable = false)
-	/*@Temporal(TemporalType.DATE)*/
+	//@Column(nullable = false)
+	@Column(nullable = true)
+	//@Temporal(TemporalType.DATE)
 	private DateTime birthDate;
 
 	private String homeAddress;
