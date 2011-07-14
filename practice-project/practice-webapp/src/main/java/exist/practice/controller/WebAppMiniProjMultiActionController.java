@@ -1,6 +1,6 @@
 package exist.practice.controller;
 
-/*
+
 import java.io.IOException;
 
 import java.util.Calendar;
@@ -21,12 +21,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.exist.ecc.models.User;
-import com.exist.ecc.services.CandidateService;
-import com.exist.ecc.services.UserService;
+//import com.exist.ecc.models.User;
+//import com.exist.ecc.services.CandidateService;
+//import com.exist.ecc.services.UserService;
 
 @Controller
-*/
 public class WebAppMiniProjMultiActionController {
 
     /*
@@ -74,5 +73,17 @@ public class WebAppMiniProjMultiActionController {
 	}
 	*/
 	
+    
+    @RequestMapping("/viewProfile.htm")
+    public ModelAndView viewProfile(HttpServletRequest req, HttpServletResponse res) throws Exception {
+        ModelAndView mav = new ModelAndView("viewProfile");
+        return mav;
+    }
+    
+    @RequestMapping("/saveUser.htm")
+    public ModelAndView saveUser(HttpServletRequest req, HttpServletResponse res) throws Exception {
+        ModelAndView mav = new ModelAndView("saveUser");
+        return mav;
+    }
 
 }

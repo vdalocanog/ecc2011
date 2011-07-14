@@ -18,8 +18,10 @@
     http://www.directwebremoting.org/schema/spring-dwr-2.0.xsd">
 
 	<dwr:configuration>
+		<!-- 
     	<dwr:convert type="bean" class="exist.practice.Org" />
     	<dwr:convert type="bean" class="exist.practice.User" />
+    	 -->
     </dwr:configuration>
 	<dwr:annotation-config />
 	<dwr:url-mapping />

@@ -23,12 +23,14 @@
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
+		<!-- 
 		<property name="annotatedClasses">
 			<list>
 				<value>exist.practice.Org</value>
 				<value>exist.practice.User</value>
 			</list>
 		</property>
+		 -->
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.show_sql">true</prop>
