@@ -15,9 +15,9 @@
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url"
-			value="jdbc:mysql://localhost:3306/web_app_mini_proj" />
+			value="jdbc:mysql://localhost:3306/practice_project" />
 		<property name="username" value="root" />
-		<property name="password" value="" />
+		<property name="password" value="root" />
 	</bean>
 
 	<bean id="sessionFactory"
@@ -43,16 +43,14 @@
 		</property>
 	</bean>
 		
-		<!-- ========== DAOS ========== 
-	<bean id="genericDAO" class="exist.practice">
-		<property name="sessionFactory" ref="sessionFactory" />
-	</bean>--> 
+	<!-- ========== DAOS ========== --> 
+	<bean id="genericDAO" class="exist.practice.dao.impl.GenericDaoImpl">
+		<!-- <property name="sessionFactory" ref="sessionFactory" /> -->
+	</bean>
 	
-	<!-- ========== SERVICES ========== 
-	<bean id="genericService" class="exist.practice" />
-    -->
+	<!-- ========== SERVICES ========== -->
+	<bean id="genericService" class="exist.practice.service.impl.GenericServiceImpl" />
     
-	<context:component-scan
-		base-package="exist.practice" />
+	
 
 </beans>

@@ -43,9 +43,6 @@
     <bean
         class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping">
         <property name="order" value="2" />
-    </bean> 
-    
-    
-
+    </bean>
 
 </beans>
