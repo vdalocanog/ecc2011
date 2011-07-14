@@ -214,6 +214,14 @@
 				</exclusions>
 				<scope>runtime</scope>
 			</dependency>
+
+			<!-- Joda Time -->
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+            <version>1.6.2</version>
+        </dependency>
+        
 		</dependencies>
 	</dependencyManagement>
 
