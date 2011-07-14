@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:dwr="http://www.directwebremoting.org/schema/spring-dwr"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context.xsd
+    
+    http://www.springframework.org/schema/mvc 
+    http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+    
+    http://www.directwebremoting.org/schema/spring-dwr 
+    http://www.directwebremoting.org/schema/spring-dwr-2.0.xsd">
+
+	<dwr:configuration>
+    	<dwr:convert type="bean" class="exist.practice.Org" />
+    	<dwr:convert type="bean" class="exist.practice.User" />
+    </dwr:configuration>
+	<dwr:annotation-config />
+	<dwr:url-mapping />
+	<dwr:controller id="dwrController" debug="true" />
+	
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver" 
+	p:viewClass="org.springframework.web.servlet.view.JstlView"  
+	p:prefix="/WEB-INF/jsp/"  
+	p:suffix=".jsp"  />
+	
+	<context:component-scan
+		base-package="exist.practice" />
+	
+	<bean
+        class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
+        <property name="order" value="1" />
+    </bean>
+    
+    <bean
+        class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping">
+        <property name="order" value="2" />
+    </bean>
+
+</beans>
