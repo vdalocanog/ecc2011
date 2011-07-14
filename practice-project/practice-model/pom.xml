@@ -113,5 +113,12 @@
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
+
+		<!-- Joda Time -->
+        <dependency>
+            <groupId>joda-time</groupId>
+            <artifactId>joda-time</artifactId>
+        </dependency>
+        
 	</dependencies>
 </project>
