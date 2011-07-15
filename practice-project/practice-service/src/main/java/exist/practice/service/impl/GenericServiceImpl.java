@@ -34,9 +34,9 @@ public class GenericServiceImpl<T> implements GenericService<T>{
 		return result;
 	}
 
-	public List<?> findLike(String table, String column, String value) {
+	public List<T> findLike(String table, String column, String value) {
 		// TODO Auto-generated method stub
-		List<?> result = this.findLike(table, column, value);
+		List<T> result = this.findLike(table, column, value);
 		return result;
 	}
 
