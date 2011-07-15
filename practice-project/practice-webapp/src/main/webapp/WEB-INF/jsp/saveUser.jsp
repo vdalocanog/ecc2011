@@ -58,7 +58,7 @@
           
           <label for="gender">Gender*</label>
           <input type="radio" name='gender' value='Male' />Male 
-          <input type="radio" name='gender' value='Female' /> <br />Female
+          <input type="radio" name='gender' value='Female' />Female <br />
           
           <label for="birthDate">Birth Date</label>
           <input type="text" id="birthDate" name="birthDate" readonly/> <br />

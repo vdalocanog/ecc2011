@@ -87,10 +87,12 @@ public class WebAppMiniProjMultiActionController {
         return mav;
     }
     
+    /*
     @RequestMapping("/saveUser.htm")
     public ModelAndView saveUser(HttpServletRequest req, HttpServletResponse res) throws Exception {
         ModelAndView mav = new ModelAndView("saveUser");
         return mav;
     }
+    */
 
 }
