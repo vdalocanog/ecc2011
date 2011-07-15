@@ -170,6 +170,11 @@
 			</exclusions>
 			<scope>runtime</scope>
 		</dependency>
+		
+		<dependency>
+		    <groupId>commons-logging</groupId>
+		    <artifactId>commons-logging</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
