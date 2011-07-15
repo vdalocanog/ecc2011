@@ -34,7 +34,7 @@
 					    <h4>Organizations</h4>
 					    <ul>
 					   		<c:forEach items="${listJoinedOrgs}" var="org" varStatus="i">
-					    		<li><a href="viewMembers.htm">org.orgName</a></li>
+					    		<li><a href="viewMembers.htm">${ org.orgName }</a></li>
 					    	</c:forEach>
 					    </ul>
 					    <p>Ganahan pa ka mo-apil ug lain nga organisasiyon? Pislita <a href="#">ni</a>.</p>

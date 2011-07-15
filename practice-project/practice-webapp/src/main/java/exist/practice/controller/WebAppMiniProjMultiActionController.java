@@ -23,7 +23,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import exist.practice.User;
-import exist.practice.service.GenericService;
 
 //import com.exist.ecc.models.User;
 //import com.exist.ecc.services.CandidateService;
@@ -31,8 +30,6 @@ import exist.practice.service.GenericService;
 
 @Controller
 public class WebAppMiniProjMultiActionController {
-
-	private GenericService genericService;
 	
     /*
 	UserService userService;
@@ -83,7 +80,6 @@ public class WebAppMiniProjMultiActionController {
     @RequestMapping("/viewProfile.htm")
     public ModelAndView viewProfile(HttpServletRequest req, HttpServletResponse res) throws Exception {
         ModelAndView mav = new ModelAndView("viewProfile");
-        mav.addObject("listJoinedOrgs", "Organization Name");
         return mav;
     }
     

@@ -48,6 +48,7 @@
 	<bean id="genericDAO" class="exist.practice.dao.impl.GenericDaoImpl" p:sessionFactory-ref="sessionFactory" />
 	
 	<!-- ========== SERVICES ========== -->
-	<bean id="genericService" class="exist.practice.service.impl.GenericServiceImpl" />
+	<bean id="userService" class="exist.practice.service.impl.UserServiceImpl" />
+	<bean id="orgService" class="exist.practice.service.impl.OrgServiceImpl" />
     
 </beans>
