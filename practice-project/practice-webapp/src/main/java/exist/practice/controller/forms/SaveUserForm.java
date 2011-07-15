@@ -52,7 +52,6 @@ public class SaveUserForm {
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String showForm(ModelMap model, HttpServletRequest req) {
-		
 		System.out.println("Invoked: showForm");
 
 		return "saveUser";
@@ -62,8 +61,19 @@ public class SaveUserForm {
 	//(Model model, @ModelAttribute("mappedModel") T mappedModel, BindingResult bindingResult, @RequestParam(value="submit",required=true) String submitType
 	@RequestMapping(method = RequestMethod.POST)
 	public String onSubmit(HttpServletRequest req, ModelMap model) {
-		
 	    System.out.println("Invoked: onSubmit");
+	    
+	    System.out.println( req.getParameter( "userName" ) );
+	    System.out.println( req.getParameter( "password" ) );
+	    System.out.println( req.getParameter( "confirmPassword" ) );
+	    System.out.println( req.getParameter( "lastName" ) );
+	    System.out.println( req.getParameter( "firstName" ) );
+	    System.out.println( req.getParameter( "mi" ) );
+	    System.out.println( req.getParameter( "emailAddress" ) );
+	    System.out.println( req.getParameter( "gender" ) );
+	    System.out.println( req.getParameter( "birthDate" ) );
+	    System.out.println( req.getParameter( "homeAddress" ) );
+	    System.out.println( req.getParameter( "contactNumber" ) );
 		
 		return "saveUserSuccess";
 	}
