@@ -29,7 +29,7 @@ public class User {
 	private String contactNumber;
 	private boolean isEnabled = true;
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinTable(name = "UserOrgs", joinColumns = @JoinColumn(name = "userId"), inverseJoinColumns = @JoinColumn(name = "orgId"))
+	@JoinTable(name = "OrgUser", joinColumns = @JoinColumn(name = "userId"), inverseJoinColumns = @JoinColumn(name = "orgId"))
 	private Set<Org> orgs;
 
 	/**

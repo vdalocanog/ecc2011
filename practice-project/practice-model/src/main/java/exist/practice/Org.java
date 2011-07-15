@@ -12,7 +12,7 @@ public class Org {
 	private long orgId = -1;
 	private String orgName;
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinTable(name = "OrgMembers", joinColumns = @JoinColumn(name = "orgId"), inverseJoinColumns = @JoinColumn(name = "userId"))
+	@JoinTable(name = "OrgUser", joinColumns = @JoinColumn(name = "orgId"), inverseJoinColumns = @JoinColumn(name = "userId"))
 	private Set<User> members;
 
 	/**
