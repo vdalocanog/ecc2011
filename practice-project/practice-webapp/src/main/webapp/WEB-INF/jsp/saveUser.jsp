@@ -5,6 +5,28 @@
 <html>
   <head>
     <title>User Profile</title>
+    
+    <script type="text/javascript" src="js/README.txt"></script>
+    <script type="text/javascript" src="js/jquery-ui-1.8.14.custom/js/jquery-1.5.1.min.js"></script>
+	<script src="js/jquery-ui-1.8.14.custom/development-bundle/ui/jquery.ui.core.js"></script>
+	<script src="js/jquery-ui-1.8.14.custom/development-bundle/ui/jquery.ui.widget.js"></script>
+	<script src="js/jquery-ui-1.8.14.custom/development-bundle/ui/jquery.ui.datepicker.js"></script>
+	<link rel="stylesheet" href="js/jquery-ui-1.8.14.custom/development-bundle/demos/demos.css">
+	<link rel="stylesheet" href="js/jquery-ui-1.8.14.custom/development-bundle/themes/base/jquery.ui.all.css">
+
+	<script>
+	$(function() {
+		$("#birthDate").datepicker({
+			changeMonth : true,
+			changeYear : true,
+			dateFormat : 'yy-mm-dd',
+			yearRange : '-101:-18',
+			maxDate : '-18y',
+			minDate : '-101y'
+		});
+	});
+	</script>
+
   </head>
 
   <body>
@@ -20,26 +42,26 @@
           <input type="password" name="password" /> <br />
           
           <label for="confirmPassword">Confirm Password*</label>
-          <input type="password name="confirmPassword" /> <br />
+          <input type="password" name="confirmPassword" /> <br />
           
           <label for="lastName">Last Name*</label>
-          <input type="input name="lastName" /> <br />
+          <input type="input" name="lastName" /> <br />
           
           <label for="firstName">First Name*</label>
-          <input type="input name="firstName" /> <br />
+          <input type="input" name="firstName" /> <br />
           
           <label for="mi">M.I.*</label>
-          <input type="input name="mi" size="1" maxlength="1" /> <br />
+          <input type="input" name="mi" size="1" maxlength="1" /> <br />
           
           <label for="emailAddress">Email Address*</label>
-          <input type="input name="emailAddress" /> <br />
+          <input type="input" name="emailAddress" /> <br />
           
           <label for="gender">Gender*</label>
           <input type="radio" name='gender' value='Male' label='Male' />
           <input type="radio" name='gender' value='Female' label='Female' /> <br />
           
           <label for="birthDate">Birth Date</label>
-          <input type="text" id="birthDate" name="birthDate" /> <br />
+          <input type="text" id="birthDate" name="birthDate" readonly/> <br />
 			
           <label for="homeAddress">Home Address</label>
           <input type="input" name="homeAddress" /> <br />
