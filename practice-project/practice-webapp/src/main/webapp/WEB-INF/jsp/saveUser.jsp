@@ -6,7 +6,6 @@
   <head>
     <title>User Profile</title>
     
-    <script type="text/javascript" src="js/README.txt"></script>
     <script type="text/javascript" src="js/jquery-ui-1.8.14.custom/js/jquery-1.5.1.min.js"></script>
     <script src="js/jquery-ui-1.8.14.custom/development-bundle/ui/jquery.ui.core.js"></script>
     <script src="js/jquery-ui-1.8.14.custom/development-bundle/ui/jquery.ui.widget.js"></script>
@@ -26,6 +25,25 @@
         });
     });
     </script>
+    
+    <script type="text/javascript" src="dwr/engine.js"></script>
+	<script type="text/javascript" src="dwr/util.js"></script>
+	<script type="text/javascript" src="dwr/interface/SaveUserDwr.js"></script>
+	
+    <script type="text/javascript">
+
+	function verifyUser() {
+
+		var userName = dwr.util.getValue("userName");
+
+		SaveUserDwr.verifyUserName(userName, function(address) {
+
+							dwr.util.setValue("userNameMessage", address.userNameMessage);
+
+						});
+	}
+
+</script>
 
   </head>
 
@@ -36,13 +54,18 @@
           <input type="hidden" name="userId" />
 
           <label for="userName">User Name*</label>
-          <input type="text" name="userName" /> <br />
+          <input type="text" name="userName" onkeyup="verifyUser()"/> (should be unique)
+          <div id="userNameMessage">*</div><br />
+          
+          <br />
 
           <label for="password">Password*</label>
           <input type="password" name="password" /> <br />
           
           <label for="confirmPassword">Confirm Password*</label>
           <input type="password" name="confirmPassword" /> <br />
+          
+          <br />
           
           <label for="lastName">Last Name*</label>
           <input type="text" name="lastName" /> <br />

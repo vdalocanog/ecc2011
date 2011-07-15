@@ -23,8 +23,8 @@
     	<dwr:convert type="bean" class="exist.practice.User" />
     	 -->
     </dwr:configuration>
-	<!-- <dwr:annotation-config />
-	<dwr:url-mapping /> -->
+	<dwr:annotation-config />
+	<dwr:url-mapping />
 	<dwr:controller id="dwrController" debug="true" />
 	
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver" 
