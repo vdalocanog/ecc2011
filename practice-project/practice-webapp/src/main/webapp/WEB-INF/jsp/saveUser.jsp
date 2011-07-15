@@ -34,9 +34,9 @@
       <form method="POST"  id="saveForm" >
       
           <input type="hidden" name="userId" />
-          
+
           <label for="userName">User Name*</label>
-          <input type="input name="username" /> <br />
+          <input type="text" name="userName" /> <br />
 
           <label for="password">Password*</label>
           <input type="password" name="password" /> <br />
@@ -45,29 +45,29 @@
           <input type="password" name="confirmPassword" /> <br />
           
           <label for="lastName">Last Name*</label>
-          <input type="input" name="lastName" /> <br />
+          <input type="text" name="lastName" /> <br />
           
           <label for="firstName">First Name*</label>
-          <input type="input" name="firstName" /> <br />
+          <input type="text" name="firstName" /> <br />
           
           <label for="mi">M.I.*</label>
-          <input type="input" name="mi" size="1" maxlength="1" /> <br />
+          <input type="text" name="mi" size="1" maxlength="1" /> <br />
           
           <label for="emailAddress">Email Address*</label>
-          <input type="input" name="emailAddress" /> <br />
+          <input type="text" name="emailAddress" /> <br />
           
           <label for="gender">Gender*</label>
-          <input type="radio" name='gender' value='Male' label='Male' />
-          <input type="radio" name='gender' value='Female' label='Female' /> <br />
+          <input type="radio" name='gender' value='Male' />Male 
+          <input type="radio" name='gender' value='Female' /> <br />Female
           
           <label for="birthDate">Birth Date</label>
           <input type="text" id="birthDate" name="birthDate" readonly/> <br />
 			
           <label for="homeAddress">Home Address</label>
-          <input type="input" name="homeAddress" /> <br />
+          <input type="text" name="homeAddress" /> <br />
 
           <label for="contactNumber">Contact Number</label>
-          <input type="input" name="contactNumber" /> (numbers only.) <br />
+          <input type="text" name="contactNumber" /> (numbers only.) <br />
 
         
 		<div class="error">* required fields</div>
