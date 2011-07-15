@@ -63,6 +63,7 @@ public class SaveUserForm {
 	public String onSubmit(HttpServletRequest req, ModelMap model) {
 	    System.out.println("Invoked: onSubmit");
 	    
+	    //required
 	    System.out.println( req.getParameter( "userName" ) );
 	    System.out.println( req.getParameter( "password" ) );
 	    System.out.println( req.getParameter( "confirmPassword" ) );
@@ -71,6 +72,8 @@ public class SaveUserForm {
 	    System.out.println( req.getParameter( "mi" ) );
 	    System.out.println( req.getParameter( "emailAddress" ) );
 	    System.out.println( req.getParameter( "gender" ) );
+	    
+	    //not required
 	    System.out.println( req.getParameter( "birthDate" ) );
 	    System.out.println( req.getParameter( "homeAddress" ) );
 	    System.out.println( req.getParameter( "contactNumber" ) );
