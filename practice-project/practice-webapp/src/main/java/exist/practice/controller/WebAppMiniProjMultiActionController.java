@@ -34,15 +34,6 @@ public class WebAppMiniProjMultiActionController {
 
 	private GenericService genericService;
 	
-	@RequestMapping("logIn.htm")
-	public ModelAndView logIn(
-		HttpServletRequest request, HttpServletResponse response,
-		ModelMap modelMap) throws Exception 
-	{
-		modelMap.put("listJoinedOrgs", "Organization Name");
-		return new ModelAndView("viewProfile", modelMap);
-	}
-	
     /*
 	UserService userService;
 	CandidateService candidateService;
@@ -92,6 +83,7 @@ public class WebAppMiniProjMultiActionController {
     @RequestMapping("/viewProfile.htm")
     public ModelAndView viewProfile(HttpServletRequest req, HttpServletResponse res) throws Exception {
         ModelAndView mav = new ModelAndView("viewProfile");
+        mav.addObject("listJoinedOrgs", "Organization Name");
         return mav;
     }
     

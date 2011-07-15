@@ -19,6 +19,8 @@
 		</nav>
 		<section>
 			<div id="userInfo">
+				${listJoinedOrgs} <br />
+				<c:out value="${listJoinedOrgs}"/>
 				Name: ${ user.firstName } ${ user.lastName } <br />
 				Email: ${ user.emailAddress } <br />
 				Gender: ${ user.gender } <br />
