@@ -18,8 +18,12 @@ import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import exist.practice.User;
+import exist.practice.service.GenericService;
 
 //import com.exist.ecc.models.User;
 //import com.exist.ecc.services.CandidateService;
@@ -28,6 +32,17 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class WebAppMiniProjMultiActionController {
 
+	private GenericService genericService;
+	
+	@RequestMapping("logIn.htm")
+	public ModelAndView logIn(
+		HttpServletRequest request, HttpServletResponse response,
+		ModelMap modelMap) throws Exception 
+	{
+		modelMap.put("listJoinedOrgs", "Organization Name");
+		return new ModelAndView("viewProfile", modelMap);
+	}
+	
     /*
 	UserService userService;
 	CandidateService candidateService;
