@@ -87,7 +87,7 @@ public class SaveUserForm {
 	    System.out.println( req.getParameter( "homeAddress" ) );
 	    System.out.println( req.getParameter( "contactNumber" ) );*/
 		
-	    if(userService.add(user)) System.out.println("PERFECT");
+	    if(userService.addUser(user)) System.out.println("PERFECT");
 	    else System.out.println("BORING!!!");
 	    
 		return "saveUserSuccess";

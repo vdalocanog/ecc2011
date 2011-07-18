@@ -8,28 +8,34 @@ import exist.practice.service.OrgService;
 
 public class OrgServiceImpl extends GenericDaoImpl<Org> implements OrgService {
 
-	public List<Org> findAll(String table) {
+	public List<Org> findAllOrg() {
 		// TODO Auto-generated method stub
-		List<Org> result = this.findAll(table);
-		return result;
+		List<Org> res = this.findAll("Org");
+		return res;
 	}
 
-	public boolean add(Org object) {
+	public boolean addOrg(Org object) {
 		// TODO Auto-generated method stub
-		boolean result = this.add(object);
-		return result;
+		boolean res = this.add(object);
+		return res;
 	}
 
-	public boolean delete(long id, Class<Org> clazz) {
+	public boolean updateOrg(Org object) {
 		// TODO Auto-generated method stub
-		boolean result = this.delete(id, clazz);
-		return result;
+		boolean res = this.update(object);
+		return res;
 	}
 
-	public List<Org> findLike(String table, String column, String value) {
+	public boolean deleteOrg(long id, Class<Org> clazz) {
 		// TODO Auto-generated method stub
-		List<Org> result = this.findLike(table, column, value);
-		return result;
+		boolean res = this.delete(id, clazz);
+		return res;
+	}
+
+	public List<Org> findOrg(String table, String column, String value) {
+		// TODO Auto-generated method stub
+		List<Org> res = this.findLike("Org", column, value);
+		return res;
 	}
 
 }

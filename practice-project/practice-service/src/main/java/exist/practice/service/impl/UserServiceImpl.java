@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import exist.practice.Org;
 import exist.practice.User;
 import exist.practice.dao.GenericDao;
 import exist.practice.dao.impl.GenericDaoImpl;
@@ -11,38 +12,38 @@ import exist.practice.service.UserService;
 
 public class UserServiceImpl extends GenericDaoImpl<User> implements UserService{
 
-	private GenericDao<User> genericDao;
-	
-	@Autowired
-	public void setGenericDao(GenericDao<User> genericDao) {
-		this.genericDao = genericDao;
-	}
-
 	public List<User> findAll(String table) {
+		List<User> res = super.findAll("User");
+		return res;
+	}
+	
+	public boolean addUser(User object) {
+		boolean res = this.add(object);
+		return res;
+	}
+	
+	public boolean updateUser(User object) {
 		// TODO Auto-generated method stub
-		List<User> result = this.findAll(table);
-		return result;
+		boolean res = this.update(object);
+		return res;
 	}
 
-	public boolean add(User object) {
+	public boolean deleteUser(long id, Class<User> clazz) {
 		// TODO Auto-generated method stub
-		User user = new User();
-		user.setUserName("Mark");
-		user.setMi('G');
-		boolean result = genericDao.add(user);//super.add(user);
-		return result;
+		boolean res = this.delete(id, clazz);
+		return res;
 	}
 
-	public boolean delete(long id, Class<User> clazz) {
+	public List<User> findUser(String column, String value) {
 		// TODO Auto-generated method stub
-		boolean result = this.delete(id, clazz);
-		return result;
+		List<User> res = this.findLike("User", column, value);
+		return res;
 	}
 
-	public List<User> findLike(String table, String column, String value) {
+	public List<User> findAllUser() {
 		// TODO Auto-generated method stub
-		List<User> result = this.findLike(table, column, value);
-		return result;
+		List<User> res = this.findAll("User");
+		return res;
 	}
 
 }
