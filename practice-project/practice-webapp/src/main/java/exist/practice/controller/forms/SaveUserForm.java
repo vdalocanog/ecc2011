@@ -43,6 +43,11 @@ import exist.practice.service.UserService;
 public class SaveUserForm {
 	
 	private UserService userService;
+	
+	@Autowired
+	public void setUserService(UserService userService) {
+		this.userService = userService;
+	}
 	//private UserService userService;
 	//private CandidateService candidateService;
 
@@ -67,26 +72,25 @@ public class SaveUserForm {
 	    System.out.println("Invoked: onSubmit");
 	    
 	    //required
-	    System.out.println( req.getParameter( "userName" ) );
-	    System.out.println( req.getParameter( "password" ) );
+	    System.out.println( user.getUserId() );
+	    System.out.println( user.getUserName() );
+	    System.out.println( user.getPassword() );
 	    System.out.println( req.getParameter( "confirmPassword" ) );
-	    System.out.println( req.getParameter( "lastName" ) );
+	    /*System.out.println( req.getParameter( "lastName" ) );
 	    System.out.println( req.getParameter( "firstName" ) );
 	    System.out.println( req.getParameter( "mi" ) );
 	    System.out.println( req.getParameter( "emailAddress" ) );
-	    System.out.println( req.getParameter( "gender" ) );
+	    System.out.println( req.getParameter( "gender" ) );*/
 	    
 	    //not required
-	    System.out.println( req.getParameter( "birthDate" ) );
+	    /*System.out.println( req.getParameter( "birthDate" ) );
 	    System.out.println( req.getParameter( "homeAddress" ) );
-	    System.out.println( req.getParameter( "contactNumber" ) );
+	    System.out.println( req.getParameter( "contactNumber" ) );*/
 		
 	    if(userService.add(user)) System.out.println("PERFECT");
 	    else System.out.println("BORING!!!");
 	    
 		return "saveUserSuccess";
-	}
-
-	
+	}	
 	
 }
