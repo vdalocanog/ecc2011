@@ -12,8 +12,8 @@ import exist.practice.service.UserService;
 
 public class UserServiceImpl extends GenericDaoImpl<User> implements UserService{
 
-	public List<User> findAll(String table) {
-		List<User> res = super.findAll("User");
+	public List<User> findAllUser(String table) {
+		List<User> res = this.findAll("User");
 		return res;
 	}
 	
