@@ -43,14 +43,14 @@
 		</property>
 	</bean>
 		
-	<!-- ========== DAOS ========== --> 
-	<bean id="genericDAO" class="exist.practice.dao.impl.GenericDaoImpl" />
+	<!-- ========== DAOS ========== -->
+	<bean id="genericDao" class="exist.practice.dao.impl.GenericDaoImpl" />
+	 
+	<!-- ========== SERVICE ======= -->
+	<bean id="userService" class="exist.practice.service.impl.UserServiceImpl"/>
+	<bean id="orgService" class="exist.practice.service.impl.OrgServiceImpl"/>
 	
-	<!-- ========== SERVICES ========== -->
-	<bean id="userService" class="exist.practice.service.impl.UserServiceImpl" />
-	<bean id="orgService" class="exist.practice.service.impl.OrgServiceImpl" />
-    
-    <bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager"> 
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager"> 
 		<property name="sessionFactory" ref="sessionFactory"/> 
 	</bean>
 </beans>

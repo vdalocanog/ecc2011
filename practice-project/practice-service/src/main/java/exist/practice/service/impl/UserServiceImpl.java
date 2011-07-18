@@ -2,11 +2,7 @@ package exist.practice.service.impl;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
-import exist.practice.Org;
 import exist.practice.User;
-import exist.practice.dao.GenericDao;
 import exist.practice.dao.impl.GenericDaoImpl;
 import exist.practice.service.UserService;
 

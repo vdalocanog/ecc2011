@@ -45,7 +45,7 @@ public class SaveUserForm {
 	private UserService userService;
 	
 	@Autowired
-	public void setUserService(UserService userService) {
+	public void setUserServiceImpl(UserService userService) {
 		this.userService = userService;
 	}
 	//private UserService userService;
@@ -87,9 +87,11 @@ public class SaveUserForm {
 	    System.out.println( req.getParameter( "homeAddress" ) );
 	    System.out.println( req.getParameter( "contactNumber" ) );*/
 		
-	    if(userService.addUser(user)) System.out.println("PERFECT");
-	    else System.out.println("BORING!!!");
-	    
+	    /*if(userService.addUser(user)) System.out.println("PERFECT");
+	    else System.out.println("BORING!!!");*/
+	    User user2 = new User();
+		user2.setUserName("testService-username1");
+		userService.addUser(user2);
 		return "saveUserSuccess";
 	}	
 	

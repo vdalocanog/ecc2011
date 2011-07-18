@@ -26,6 +26,7 @@ public class GenericDaoImplTest {
 	@Autowired
 	private GenericDao genericDao;
 
+	@SuppressWarnings("unchecked")
 	@Test
 	public void testAdd() {
 		User user = new User();
