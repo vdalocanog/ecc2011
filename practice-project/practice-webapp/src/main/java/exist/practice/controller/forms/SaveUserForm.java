@@ -32,14 +32,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
+import exist.practice.User;
+import exist.practice.service.UserService;
+
 //import com.exist.ecc.models.User;
 //import com.exist.ecc.services.CandidateService;
-//import com.exist.ecc.services.UserService;
 
 @Controller
 @RequestMapping("/saveUser.htm")
 public class SaveUserForm {
-
+	
+	private UserService userService;
 	//private UserService userService;
 	//private CandidateService candidateService;
 
@@ -53,14 +56,14 @@ public class SaveUserForm {
 	@RequestMapping(method = RequestMethod.GET)
 	public String showForm(ModelMap model, HttpServletRequest req) {
 		System.out.println("Invoked: showForm");
-
+		model.put("user", new User());
 		return "saveUser";
 	}
 	
 	
 	//(Model model, @ModelAttribute("mappedModel") T mappedModel, BindingResult bindingResult, @RequestParam(value="submit",required=true) String submitType
 	@RequestMapping(method = RequestMethod.POST)
-	public String onSubmit(HttpServletRequest req, ModelMap model) {
+	public String onSubmit(HttpServletRequest req, ModelMap model, User user) {
 	    System.out.println("Invoked: onSubmit");
 	    
 	    //required
@@ -78,6 +81,9 @@ public class SaveUserForm {
 	    System.out.println( req.getParameter( "homeAddress" ) );
 	    System.out.println( req.getParameter( "contactNumber" ) );
 		
+	    if(userService.add(user)) System.out.println("PERFECT");
+	    else System.out.println("BORING!!!");
+	    
 		return "saveUserSuccess";
 	}
 

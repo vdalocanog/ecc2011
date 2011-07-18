@@ -49,18 +49,16 @@
 
   <body>
   
-      <form method="POST"  id="saveUserForm" >
-      
-          <input type="hidden" name="userId" />
+      <form:form action="saveUser.htm" method="POST"  id="saveUserForm" commandName="user">
 
           <label for="userName">User Name*</label>
-          <input type="text" name="userName" onkeyup="verifyUser()"/> (should be unique)
+          <form:input type="text" path="userName" onkeyup="verifyUser()"/> (should be unique)
           <div id="userNameMessage">*</div><br />
           
           <br />
 
           <label for="password">Password*</label>
-          <input type="password" name="password" /> <br />
+          <form:input type="password" path="password" /> <br />
           
           <label for="confirmPassword">Confirm Password*</label>
           <input type="password" name="confirmPassword" /> <br />
@@ -68,29 +66,29 @@
           <br />
           
           <label for="lastName">Last Name*</label>
-          <input type="text" name="lastName" /> <br />
+          <form:input type="text" path="lastName" /> <br />
           
           <label for="firstName">First Name*</label>
-          <input type="text" name="firstName" /> <br />
+          <form:input type="text" path="firstName" /> <br />
           
           <label for="mi">M.I.*</label>
-          <input type="text" name="mi" size="1" maxlength="1" /> <br />
+          <form:input type="text" path="mi" size="1" maxlength="1" /> <br />
           
           <label for="emailAddress">Email Address*</label>
-          <input type="text" name="emailAddress" /> <br />
+          <form:input type="email" path="emailAddress" /> <br />
           
           <label for="gender">Gender*</label>
-          <input type="radio" name='gender' value='Male' />Male 
-          <input type="radio" name='gender' value='Female' />Female <br />
+          <form:input type="radio" path='gender' value='Male' />Male 
+          <form:input type="radio" path='gender' value='Female' />Female <br />
           
           <label for="birthDate">Birth Date</label>
-          <input type="text" id="birthDate" name="birthDate" readonly/> <br />
+         <%--  <form:input type="text" id="birthDate" path="birthDate" readonly/> --%> <br />
             
           <label for="homeAddress">Home Address</label>
-          <input type="text" name="homeAddress" /> <br />
+          <form:input type="text" path="homeAddress" /> <br />
 
           <label for="contactNumber">Contact Number</label>
-          <input type="text" name="contactNumber" /> (numbers only.) <br />
+          <form:input type="text" path="contactNumber" /> (numbers only.) <br />
 
         
           <div class="error">* required fields</div>
@@ -98,7 +96,7 @@
         <br/>
         <input type="submit" value="Save User" />
         <input type="reset" value="Reset" />
-      </form>
+      </form:form>
 
       <a href='login.htm'>Back to Login</a><br/>
 
