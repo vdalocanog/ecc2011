@@ -9,7 +9,6 @@ import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import exist.practice.User;
 import exist.practice.dao.GenericDao;
 
 @Repository
