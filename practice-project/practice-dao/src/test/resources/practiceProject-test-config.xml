@@ -35,9 +35,6 @@
 	<!-- ========== DAOS ========== -->
 	<bean id="genericDao" class="exist.practice.dao.impl.GenericDaoImpl" />
 	 
-	<!-- ========== SERVICE ======= -->
-	<bean id="userService" class="exist.practice.service.impl.UserServiceImpl"/>
-	
 	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager"> 
 		<property name="sessionFactory" ref="sessionFactory"/> 
 	</bean>
