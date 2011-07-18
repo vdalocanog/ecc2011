@@ -5,12 +5,14 @@ import java.util.List;
 import exist.practice.User;
 
 public interface UserService {
-	public List<User> findAll(String table);
+	public List<User> findAllUser();
 
-	public boolean add(User object);
+	public boolean addUser(User object);
+	
+	public boolean updateUser(User object);
 
-	public boolean delete(long id, Class<User> clazz);
+	public boolean deleteUser(long id, Class<User> clazz);
 
-	public List<User> findLike(String table, String column, String value);
+	public List<User> findUser(String column, String value);
 
 }

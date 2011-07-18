@@ -8,28 +8,34 @@ import exist.practice.service.UserService;
 
 public class UserServiceImpl extends GenericDaoImpl<User> implements UserService{
 
-	public List<User> findAll(String table) {
+	public boolean addUser(User object) {
 		// TODO Auto-generated method stub
-		List<User> result = this.findAll(table);
-		return result;
+		boolean res = this.add(object);
+		return res;
 	}
 
-	public boolean add(User object) {
+	public boolean updateUser(User object) {
 		// TODO Auto-generated method stub
-		boolean result = this.add(object);
-		return result;
+		boolean res = this.update(object);
+		return res;
 	}
 
-	public boolean delete(long id, Class<User> clazz) {
+	public boolean deleteUser(long id, Class<User> clazz) {
 		// TODO Auto-generated method stub
-		boolean result = this.delete(id, clazz);
-		return result;
+		boolean res = this.delete(id, clazz);
+		return res;
 	}
 
-	public List<User> findLike(String table, String column, String value) {
+	public List<User> findUser(String column, String value) {
 		// TODO Auto-generated method stub
-		List<User> result = this.findLike(table, column, value);
-		return result;
+		List<User> res = this.findLike("User", column, value);
+		return res;
+	}
+
+	public List<User> findAllUser() {
+		// TODO Auto-generated method stub
+		List<User> res = this.findAll("User");
+		return res;
 	}
 
 }

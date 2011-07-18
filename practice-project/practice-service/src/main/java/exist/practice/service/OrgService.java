@@ -6,12 +6,14 @@ import exist.practice.Org;
 
 
 public interface OrgService {
-	public List<Org> findAll(String table);
+	public List<Org> findAllOrg();
 
-	public boolean add(Org object);
+	public boolean addOrg(Org object);
+	
+	public boolean updateOrg(Org object);
 
-	public boolean delete(long id, Class<Org> clazz);
+	public boolean deleteOrg(long id, Class<Org> clazz);
 
-	public List<Org> findLike(String table, String column, String value);
+	public List<Org> findOrg(String table, String column, String value);
 
 }
