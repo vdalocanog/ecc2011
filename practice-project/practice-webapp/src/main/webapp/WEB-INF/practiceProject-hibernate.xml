@@ -17,7 +17,7 @@
 		<property name="url"
 			value="jdbc:mysql://localhost:3306/practice_project" />
 		<property name="username" value="root" />
-		<property name="password" value="1234" />
+		<property name="password" value="root" />
 	</bean>
 
 	<bean id="sessionFactory"
@@ -42,6 +42,9 @@
 			</props>
 		</property>
 	</bean>
+		
+	<context:component-scan
+		base-package="exist.practice" />
 		
 	<!-- ========== DAOS ========== --> 
 	<bean id="genericDAO" class="exist.practice.dao.impl.GenericDaoImpl" />
