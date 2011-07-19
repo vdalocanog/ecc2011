@@ -43,8 +43,32 @@ public class SaveUserForm {
 	@RequestMapping(method = RequestMethod.POST)
 	public String onSubmit(HttpServletRequest req, ModelMap model, User user) {
 	    System.out.println("Invoked: onSubmit");
-		userService.addUser(user);
-		return "saveUserSuccess";
+	    String error = "Registration Failed! ";
+	    boolean isSuccess = true;
+	    if(!user.getUserName().equals("") && !user.getPassword().equals("") 
+	    	&& !user.getFirstName().equals("") && !user.getLastName().equals("") 
+	    	&& !user.getMi().equals("") && !user.getEmailAddress().equals(""))
+	    {
+		    if(user.getPassword().equals(req.getParameter("confirmPassword"))){
+		    	try{
+		    		userService.addUser(user);	
+		    	} catch(Exception e){
+		    		System.out.println("BLEHHHHHHHHHHH!");
+		    		error += "Username already in use.";
+		    		isSuccess = false;
+		    	}
+		    } else {
+		    	error += "Passwords don't match.";
+		    	isSuccess = false;
+		    }
+	    } else {
+	    	error += "Make sure to fill-up all required fields.";
+	    	isSuccess = false;
+	    }
+	    if(isSuccess) return "home";
+	    model.put("user", user);
+    	model.put("message", error);
+    	return "saveUser";
 	}	
 	
 }

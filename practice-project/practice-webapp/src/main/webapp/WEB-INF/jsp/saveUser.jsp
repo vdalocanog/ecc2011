@@ -1,7 +1,10 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core"%>
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix='c' uri='http://java.sun.com/jsp/jstl/core' %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!doctype html>
 <html>
 <meta charset="UTF-8">
@@ -27,57 +30,60 @@
 <script type="text/javascript" src="resources/javascript/register.js"></script>
 <link rel="stylesheet" type="text/css" href="resources/css/register.css" media="screen" />
 </head>
-<body>
+<body><!-- Validate pa if short ra ang password -->
 	<div id="wrapper">
 		<section>
+			<div id="message">${ message }</div>
 			<form:form action="saveUser.htm" method="POST"  id="saveUserForm" commandName="user">
 			    <label for="userName">User Name</label>
-			    <form:input type="text" id="uname" path="userName" onkeyup="ajax()" placeholder="required"/>
+			    <form:input type="text" id="uname" path="userName" onkeyup="ajax()" placeholder="required" value="${ user.userName }" REQUIRED="REQUIRED" AUTOFOCUS="AUTOFOCUS"/>
 			    <span id="userNameMessage"></span>
 			    
 			    <br />
 			
 			    <label for="password">Password</label>
-			    <form:input type="password" id="pword" path="password" placeholder="required" />
+			    <form:input type="password" id="pword" path="password" placeholder="required" value="${ user.password }" REQUIRED="REQUIRED" />
 			    <span id="pwordmsg"></span> <br />
 			    
 			    <label for="confirmPassword">Confirm Password</label>
-			    <input type="password" id="pword2" name="confirmPassword" placeholder="required" />
-			    <span id="pword2msg"></span> <br />
+			    <input type="password" id="pword2" name="confirmPassword" placeholder="required" REQUIRED="REQUIRED" />
+			    <span id="pword2msg"></span> 
 			    
 			    <br />
 			    
 			    <label for="lastName">Last Name</label>
-			    <form:input type="text" path="lastName" placeholder="required" /> <br />
+			    <form:input type="text" path="lastName" placeholder="required" value="${ user.lastName }" REQUIRED="REQUIRED" /> <br />
 			    
 			    <label for="firstName">First Name</label>
-			    <form:input type="text" path="firstName" placeholder="required" /> <br />
+			    <form:input type="text" path="firstName" placeholder="required" value="${ user.firstName }" REQUIRED="REQUIRED" /> <br />
 			    
 			    <label for="mi">M.I.</label>
-			    <form:input type="text" path="mi" size="5" maxlength="1" placeholder="required"/> <br />
+			    <form:input type="text" path="mi" size="5" maxlength="1" placeholder="required" value="${ user.mi }" REQUIRED="REQUIRED"/> <br />
 			    
 			    <label for="emailAddress">Email Address</label>
-			    <form:input type="email" path="emailAddress"  placeholder="required"/> <br />
+			    <form:input type="email" path="emailAddress"  placeholder="required" value="${ user.emailAddress }" REQUIRED="REQUIRED"/> <br />
 			    
 			    <label for="gender">Gender</label>
 			    <form:input type="radio" path='gender' value='Male' />Male 
-			    <form:input type="radio" path='gender' value='Female' />Female <br />
+			    <form:input type="radio" path='gender' value='Female' />Female 
+			    <form:input type="radio" path='gender' value='Others' CHECKED="CHECKED"/>Others <br />
 			    
 			    <label for="birthDate">Birth Date</label>
-			    <input type="text" id="birthDate" name="birthDate" readonly/> <br />
+			    <input type="text" id="birthDate" name="birthDate" readonly  value="${ user.birthDate }"/> <br />
 			      
 			    <label for="homeAddress">Home Address</label>
-			    <form:input type="text" path="homeAddress" /> <br />
+			    <form:input type="text" path="homeAddress" value="${ user.homeAddress }" /> <br />
 			
 			    <label for="contactNumber">Contact Number</label>
-			    <form:input type="text" class="numberOnly" path="contactNumber" placeholder="numbers only"/><br />
+			    <form:input type="text" class="numberOnly" path="contactNumber" placeholder="numbers only" value="${ user.contactNumber }"/><br />
 			
 			  	<br/>
-			  	<input type="submit" value="Save User" />
+			  	<input type="submit" value="Save User" id="btnSubmit" />
 			  	<input type="reset" value="Reset" />
 			</form:form>
 			<a href='login.htm'>Back to Login</a><br/>
 		</section>
 	</div>
+	<div class="squaredCircle" >Nganong dili man ko muhunong oie..,,</div>
 </body>
 </html>

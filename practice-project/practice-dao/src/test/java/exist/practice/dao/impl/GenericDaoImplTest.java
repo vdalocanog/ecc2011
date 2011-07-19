@@ -33,7 +33,7 @@ public class GenericDaoImplTest {
 		user.setUserName("test-username-1");
 		user.setFirstName("firstName");
 		user.setLastName("lastName");
-		user.setMi('A');
+		user.setMi("A");
 		String date = "1990-05-19";
 		/*user.setBirthDate(new DateTime(date));*/
 		user.setBirthDate(date);
@@ -55,7 +55,7 @@ public class GenericDaoImplTest {
 		user.setUserName("test-username-2");
 		user.setFirstName("firstName");
 		user.setLastName("lastName");
-		user.setMi('A');
+		user.setMi("A");
 		String date = "1990-05-19";
 		/*user.setBirthDate(new DateTime(date));*/
 		user.setBirthDate(date);
@@ -107,7 +107,7 @@ public class GenericDaoImplTest {
 		user.setUserName("test-username-2");
 		user.setFirstName("firstName");
 		user.setLastName("lastName");
-		user.setMi('A');
+		user.setMi("A");
 		String date = "1990-05-19";
 		/*user.setBirthDate(new DateTime(date));*/
 		user.setBirthDate(date);
@@ -124,7 +124,7 @@ public class GenericDaoImplTest {
 		user.setUserName("test-username-4");
 		user.setFirstName("firstName");
 		user.setLastName("lastName");
-		user.setMi('A');
+		user.setMi("A");
 		String date = "1990-05-19";
 		/*user.setBirthDate(new DateTime(date));*/
 		user.setBirthDate(date);

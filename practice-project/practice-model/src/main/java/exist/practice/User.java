@@ -12,11 +12,12 @@ public class User {
 	@Id
 	@GeneratedValue
 	private long userId = -1;
+	@Column(unique = true)
 	private String userName;
 	private String password;
 	private String lastName;
 	private String firstName;
-	private char mi;
+	private String mi;
 	private String emailAddress;
 	private String gender;
 
@@ -110,7 +111,7 @@ public class User {
 	/**
 	 * @return the mi
 	 */
-	public char getMi() {
+	public String getMi() {
 		return mi;
 	}
 
@@ -118,7 +119,7 @@ public class User {
 	 * @param mi
 	 *            the mi to set
 	 */
-	public void setMi(char mi) {
+	public void setMi(String mi) {
 		this.mi = mi;
 	}
 
