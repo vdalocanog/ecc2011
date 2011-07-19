@@ -26,15 +26,22 @@
 </script>
 <script type="text/javascript">
 	$(function() {
+		var loadingIcon = "<img src='resources/images/ajax-loader.gif' width='15px' height='15px' />";
+		var checkIcon = "<img src='resources/images/check.png' width='15px' height='15px' />";
+		var wrongIcon = "<img src='resources/images/wrong.png' width='15px' height='15px' />";
+		
 		$('#uname').keyup(function() {
+			$('#userNameMessage').html(loadingIcon);
 			$.ajax({
 		    	url: 'checkUname.htm',
 		    	data: ({uname : $('#uname').val()}),
 		    	success: function(data) {
-		      		$('#userNameMessage').html(data);
+		    		var status = wrongIcon; 
+		    		if(data == "valid") status = checkIcon;
+		    		$('#userNameMessage').html(status);
 		    	},
 		    	error: function(){
-		    		$('#userNameMessage').html("Ajax not working.");
+		    		$('#userNameMessage').html("Ajax Failed.");
 		    	}
 			});
 		});

@@ -7,11 +7,6 @@ import exist.practice.dao.impl.GenericDaoImpl;
 import exist.practice.service.UserService;
 
 public class UserServiceImpl extends GenericDaoImpl<User> implements UserService{
-
-	public List<User> findAllUser(String table) {
-		List<User> res = this.findAll("User");
-		return res;
-	}
 	
 	public boolean addUser(User object) {
 		boolean res = this.add(object);
