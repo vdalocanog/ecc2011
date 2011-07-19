@@ -24,61 +24,42 @@
         });
     });
 </script>
-<script type="text/javascript">
-	$(function() {
-		var loadingIcon = "<img src='resources/images/ajax-loader.gif' width='15px' height='15px' />";
-		var checkIcon = "<img src='resources/images/check.png' width='15px' height='15px' />";
-		var wrongIcon = "<img src='resources/images/wrong.png' width='15px' height='15px' />";
-		
-		$('#uname').keyup(function() {
-			$('#userNameMessage').html(loadingIcon);
-			$.ajax({
-		    	url: 'checkUname.htm',
-		    	data: ({uname : $('#uname').val()}),
-		    	success: function(data) {
-		    		var status = wrongIcon; 
-		    		if(data == "valid") status = checkIcon;
-		    		$('#userNameMessage').html(status);
-		    	},
-		    	error: function(){
-		    		$('#userNameMessage').html("Ajax Failed.");
-		    	}
-			});
-		});
-	}); 
-</script>
+<script type="text/javascript" src="resources/javascript/register.js"></script>
+<link rel="stylesheet" type="text/css" href="resources/css/register.css" media="screen" />
 </head>
 <body>
 	<div id="wrapper">
 		<section>
 			<form:form action="saveUser.htm" method="POST"  id="saveUserForm" commandName="user">
-			    <label for="userName">User Name*</label>
-			    <form:input type="text" id="uname" path="userName" onkeyup="ajax()" placeholder="important"/>
-			    <span id="userNameMessage">*</span><br />
+			    <label for="userName">User Name</label>
+			    <form:input type="text" id="uname" path="userName" onkeyup="ajax()" placeholder="required"/>
+			    <span id="userNameMessage"></span>
 			    
 			    <br />
 			
-			    <label for="password">Password*</label>
-			    <form:input type="password" path="password" /> <br />
+			    <label for="password">Password</label>
+			    <form:input type="password" id="pword" path="password" placeholder="required" />
+			    <span id="pwordmsg"></span> <br />
 			    
-			    <label for="confirmPassword">Confirm Password*</label>
-			    <input type="password" name="confirmPassword" /> <br />
+			    <label for="confirmPassword">Confirm Password</label>
+			    <input type="password" id="pword2" name="confirmPassword" placeholder="required" />
+			    <span id="pword2msg"></span> <br />
 			    
 			    <br />
 			    
-			    <label for="lastName">Last Name*</label>
-			    <form:input type="text" path="lastName" /> <br />
+			    <label for="lastName">Last Name</label>
+			    <form:input type="text" path="lastName" placeholder="required" /> <br />
 			    
-			    <label for="firstName">First Name*</label>
-			    <form:input type="text" path="firstName" /> <br />
+			    <label for="firstName">First Name</label>
+			    <form:input type="text" path="firstName" placeholder="required" /> <br />
 			    
-			    <label for="mi">M.I.*</label>
-			    <form:input type="text" path="mi" size="1" maxlength="1" /> <br />
+			    <label for="mi">M.I.</label>
+			    <form:input type="text" path="mi" size="5" maxlength="1" placeholder="required"/> <br />
 			    
-			    <label for="emailAddress">Email Address*</label>
-			    <form:input type="email" path="emailAddress" /> <br />
+			    <label for="emailAddress">Email Address</label>
+			    <form:input type="email" path="emailAddress"  placeholder="required"/> <br />
 			    
-			    <label for="gender">Gender*</label>
+			    <label for="gender">Gender</label>
 			    <form:input type="radio" path='gender' value='Male' />Male 
 			    <form:input type="radio" path='gender' value='Female' />Female <br />
 			    
@@ -89,14 +70,11 @@
 			    <form:input type="text" path="homeAddress" /> <br />
 			
 			    <label for="contactNumber">Contact Number</label>
-			    <form:input type="text" path="contactNumber" /> (numbers only.) <br />
+			    <form:input type="text" class="numberOnly" path="contactNumber" placeholder="numbers only"/><br />
 			
-			  
-			    <div class="error">* required fields</div>
-			  
-			  <br/>
-			  <input type="submit" value="Save User" />
-			  <input type="reset" value="Reset" />
+			  	<br/>
+			  	<input type="submit" value="Save User" />
+			  	<input type="reset" value="Reset" />
 			</form:form>
 			<a href='login.htm'>Back to Login</a><br/>
 		</section>
