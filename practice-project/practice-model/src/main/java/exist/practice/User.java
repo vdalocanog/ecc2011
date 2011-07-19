@@ -163,8 +163,8 @@ public class User {
 	 * @param birthDate
 	 *            the birthDate to set
 	 */
-	public void setBirthDate(DateTime birthDate) {
-		this.birthDate = birthDate;
+	public void setBirthDate(String birthDate) {
+		this.birthDate = new DateTime(birthDate);
 	}
 
 	/**
