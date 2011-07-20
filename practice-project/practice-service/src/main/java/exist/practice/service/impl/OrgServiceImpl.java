@@ -26,13 +26,13 @@ public class OrgServiceImpl extends GenericDaoImpl<Org> implements OrgService {
 		return res;
 	}
 
-	public boolean deleteOrg(long id, Class<Org> clazz) {
+	public boolean deleteOrg(long id) {
 		// TODO Auto-generated method stub
-		boolean res = this.delete(id, clazz);
+		boolean res = this.delete(id, Org.class);
 		return res;
 	}
 
-	public List<Org> findOrg(String table, String column, String value) {
+	public List<Org> findOrg(String column, String value) {
 		// TODO Auto-generated method stub
 		List<Org> res = this.findLike("Org", column, value);
 		return res;
