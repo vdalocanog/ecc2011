@@ -11,10 +11,10 @@
 
 <h1>Download Page</h1>
 <p>Click the download links below:</p>
-<c:url value="/krams/main/download/xls" var="downloadXls"/>
+<c:url value="/practice-webapp/report/download/xls" var="downloadXls"/>
 <a href="${downloadXls}">Download Excel</a>
 <br/>
-<c:url value="/krams/main/download/pdf" var="downloadPdf"/>
+<c:url value="/practice-webapp/report/download/pdf" var="downloadPdf"/>
 <a href="${downloadPdf}">Download PDF</a>
 
 </body>
