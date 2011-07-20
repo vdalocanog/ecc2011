@@ -32,7 +32,9 @@ public class User {
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(name = "OrgUser", joinColumns = @JoinColumn(name = "userId"), inverseJoinColumns = @JoinColumn(name = "orgId"))
 	private Set<Org> orgs;
-
+	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinTable(name = "UserRole", joinColumns = @JoinColumn(name = "userId"), inverseJoinColumns = @JoinColumn(name = "roleId"))
+	private Set<Role> roleList;
 	/**
 	 * @return the userId
 	 */
@@ -212,6 +214,14 @@ public class User {
 
 	public boolean isEnabled() {
 		return isEnabled;
+	}
+
+	public void setRoleList(Set<Role> roleList) {
+		this.roleList = roleList;
+	}
+
+	public Set<Role> getRoleList() {
+		return roleList;
 	}
 
 }

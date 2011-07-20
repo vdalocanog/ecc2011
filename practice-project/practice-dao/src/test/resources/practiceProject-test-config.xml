@@ -19,6 +19,7 @@
 			<list>
 				<value>exist.practice.Org</value>
 				<value>exist.practice.User</value>
+				<value>exist.practice.Role</value>
 			</list>
 		</property>
 		<property name="hibernateProperties">

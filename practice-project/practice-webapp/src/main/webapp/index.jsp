@@ -1,2 +1,3 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<% response.sendRedirect("home.htm"); %>
+
+<% response.sendRedirect("auth/login.htm"); %>

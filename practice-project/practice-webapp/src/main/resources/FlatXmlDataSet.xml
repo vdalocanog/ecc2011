@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+	<User userId="1" userName="admin" password="admin" firstName=" " lastName=" "
+		mi=" " gender=" " homeAddress=" " birthDate="1990-05-19" contactNumber=" "
+		emailAddress="" isEnabled="true" />
+	<Role roleId="1" role="ROLE_ADMIN" />
+	<Role roleId="2" role="ROLE_USER" />
+	<UserRole roleId="1" userId="1"/>
+	<UserRole roleId="2" userId="1"/>
+</dataset>
