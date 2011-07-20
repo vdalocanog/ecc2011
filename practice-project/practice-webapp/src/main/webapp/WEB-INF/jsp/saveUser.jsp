@@ -7,6 +7,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!doctype html>
 <html>
+<head>
 <meta charset="UTF-8">
 <title>User Profile</title>
 <script type="text/javascript" src="js/jquery-ui-1.8.14.custom/js/jquery-1.5.1.min.js"></script>
@@ -80,10 +81,14 @@
 			  	<br/>
 			  	<input type="submit" value="Save User" id="btnSubmit" />
 			  	<input type="reset" value="Reset" />
+			  	<a href='login.htm'><input type="button" value="<<Back" /></a>
 			</form:form>
-			<a href='login.htm'>Back to Login</a><br/>
+			Mogana ko sa Chrome: <br />
+			<audio controls="controls">
+			  <source src="resources/audio/JasonMraz-TryTryTry.mp3" type="audio/mp3" />
+			  Your browser does not support the audio element.
+			</audio>
 		</section>
 	</div>
-	<div class="squaredCircle" >Nganong dili man ko muhunong oie..,,</div>
 </body>
 </html>
