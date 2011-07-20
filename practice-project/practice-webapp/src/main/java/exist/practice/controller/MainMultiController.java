@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class MainMultiController {	
-	
 
 	@RequestMapping(value="/home.htm", method=RequestMethod.GET)
 	public String loadHomePage(){
