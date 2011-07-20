@@ -25,11 +25,11 @@ public class UserServiceImpl extends GenericDaoImpl<User> implements UserService
 		return res;
 	}
 
-	public User findUser(String column, String value) {
+	public List<User> findUser(String column, String value) {
 		// TODO Auto-generated method stub
 		List<User> res = this.findLike("User", column, value);
-		if(res.size() == 0) return null;
-		return res.get(0);
+		//if(res.size() == 0) return null;
+		return res;
 	}
 
 	public List<User> findAllUser() {

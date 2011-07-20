@@ -33,8 +33,7 @@ public class CustomUserDetailService implements UserDetailsService {
 		UserDetails userDetails = null;
 
 		try {
-			exist.practice.User user = (exist.practice.User) userService
-					.findUser("userName", username).get(0);
+			exist.practice.User user = userService.findUser("userName", username).get(0);
 
 			userDetails = new User(user.getUserName(), user.getPassword()
 					.toLowerCase(), true, true, true, true,
