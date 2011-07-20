@@ -27,13 +27,37 @@
 	<dwr:url-mapping /> -->
 	<dwr:controller id="dwrController" debug="true" />
 	
+	<!-- 
+	Here we declared two resolvers. The lower numbered order takes higher precedence.
+	This means the XmlViewResolver will be used first by Spring to check if there's 
+	a matching view. If not, it uses InternalResourceViewResolver instead.
+	
+	If we set InternalResourceViewResolver's order to 0, all references to our view reports
+	will be classified as JSP pages instead. This is not what we want. So we put ordering.
+	 -->
+	 
+	<!-- 
+	Resolves view names based on the their literal names. These names are then matched
+	inside the /WEB-INF/jsp/ folder. If a match is found, the JSP page is served.
+	Take note of the ordering of this ViewResolver.
+	-->
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver" 
 	p:viewClass="org.springframework.web.servlet.view.JstlView"  
 	p:prefix="/WEB-INF/jsp/"  
-	p:suffix=".jsp"  />
+	p:suffix=".jsp"  
+	p:order="1" />
 	
+	<!-- Activates various annotations to be detected in bean classes -->
+	<context:annotation-config />
+	
+	<!-- Scans the classpath for annotated components that will be auto-registered as Spring beans.
+	 For example @Controller and @Service. Make sure to set the correct base-package-->
 	<context:component-scan
 		base-package="exist.practice" />
+		
+	<!-- Configures the annotation-driven Spring MVC Controller programming model.
+	Note that, with Spring 3.0, this tag works in Servlet MVC only!  -->
+	<mvc:annotation-driven /> 
 	
 	<bean
         class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
@@ -44,5 +68,16 @@
         class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping">
         <property name="order" value="2" />
     </bean>
+    
+    <import resource="jasper-views.xml" />
+    
+    <!--  
+	Resolves view names based on the names declared on the declared xml location
+	All our Jasper views are declared inside the specified xml location.
+	Take note of the ordering of this ViewResolver.
+	 -->
+	<bean class="org.springframework.web.servlet.view.XmlViewResolver"
+			p:location="/WEB-INF/jasper-views.xml"  
+			p:order="0" />
 
 </beans>
