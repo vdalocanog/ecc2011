@@ -46,7 +46,7 @@ public class WebAppMiniProjMultiActionController {
         return mav;
     }
     
-    @RequestMapping("/home.htm")
+    /*@RequestMapping("/home.htm")
     public ModelAndView home(HttpServletRequest req){
     	ModelAndView mav = new ModelAndView("home");
     	HttpSession session = req.getSession();
@@ -55,7 +55,7 @@ public class WebAppMiniProjMultiActionController {
     	mav.addObject("uname", uname);
     	return mav;
     }
-    
+    */
     @RequestMapping("/viewUser.htm")
     public ModelAndView viewUser(HttpServletRequest req){
     	ModelAndView mav = new ModelAndView("viewProfile");
