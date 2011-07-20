@@ -1,12 +1,7 @@
 package exist.practice.controller;
 
 
-import java.io.IOException;
-
-import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,24 +10,24 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
-
-
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import exist.practice.User;
 import exist.practice.Org;
+import exist.practice.User;
+import exist.practice.service.UserService;
 
 
 @Controller
 public class WebAppMiniProjMultiActionController {
-
 	
-    
+	private UserService userService;
+	
+	@Autowired
+	public void setUserServiceImpl(UserService userService) {
+		this.userService = userService;
+	}
+
     @RequestMapping("/viewProfile.htm")
     public ModelAndView viewProfile(HttpServletRequest req, HttpServletResponse res) throws Exception {
         ModelAndView mav = new ModelAndView("viewProfile");
@@ -51,6 +46,22 @@ public class WebAppMiniProjMultiActionController {
         return mav;
     }
     
-
-
+    @RequestMapping("/home.htm")
+    public ModelAndView home(HttpServletRequest req){
+    	ModelAndView mav = new ModelAndView("home");
+    	HttpSession session = req.getSession();
+    	session.setAttribute("uname", "romel"); ///////////////// for testing only
+    	String uname = (String) session.getAttribute("uname");
+    	mav.addObject("uname", uname);
+    	return mav;
+    }
+    
+    @RequestMapping("/viewUser.htm")
+    public ModelAndView viewUser(HttpServletRequest req){
+    	ModelAndView mav = new ModelAndView("viewProfile");
+    	HttpSession session = req.getSession();
+    	String uname = (String) session.getAttribute("uname");
+    	mav.addObject("user", userService.findUser("userName", uname));
+    	return mav;
+    }
 }

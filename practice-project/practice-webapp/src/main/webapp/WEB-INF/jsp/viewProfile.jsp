@@ -10,6 +10,7 @@
 <meta charset="UTF-8">
 <head>
 <title>${ user.firstName } ${ user.lastName }</title>
+<link rel="stylesheet" type="text/css" href="resources/css/register.css" media="screen" />
 </head>
 <body>
 	<div id="wrapper">
@@ -19,13 +20,15 @@
 		</nav>
 		<section>
 			<div id="userInfo">
-				Name: ${ user.firstName } ${ user.lastName } <br />
-				Email: ${ user.emailAddress } <br />
-				Gender: ${ user.gender } <br />
-				Birthday: ${ user.birthDate } <br />
-				Home: ${ user.homeAddress } <br />
-				Contact Number: ${ user.contactNumber }
+				<p>Name: ${ user.firstName } ${ user.lastName } </p>
+				<p>Email: ${ user.emailAddress } </p>
+				<p>Gender: ${ user.gender } </p>
+				<p>Birthday: ${ user.birthDate } </p> 
+				<p>Home: ${ user.homeAddress } </p>
+				<p>Contact Number: ${ user.contactNumber } </p>
+				<br />
 			</div> 
+			<hr />
 			<div id="userOrgs">
 				<c:choose>
 					<c:when test="${fn:length(orgList) > 0}">
@@ -39,7 +42,7 @@
 					</c:when>
 					<c:otherwise>
 					    <p>Wala kay organisasyon nga gi-apilan! 
-					    Click <a href="#">here</a> para mu-apil.</p>
+					    Click <a href="org.htm">here</a> para mu-apil.</p>
 					</c:otherwise>
 				</c:choose>
 			</div>
