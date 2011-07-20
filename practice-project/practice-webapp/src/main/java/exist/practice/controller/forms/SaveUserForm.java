@@ -1,5 +1,8 @@
 package exist.practice.controller.forms;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +11,9 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import exist.practice.Role;
 import exist.practice.User;
+import exist.practice.service.RoleService;
 import exist.practice.service.UserService;
 
 @Controller
@@ -16,6 +21,9 @@ import exist.practice.service.UserService;
 public class SaveUserForm {
 	
 	private UserService userService;
+	
+	@Autowired
+	private RoleService roleService;
 	
 	@Autowired
 	public void setUserServiceImpl(UserService userService) {
@@ -51,6 +59,13 @@ public class SaveUserForm {
 	    {
 		    if(user.getPassword().equals(req.getParameter("confirmPassword"))){
 		    	try{
+		    		Role role = this.roleService.findRole("roleId", "2").get(0);
+		    		Set<Role> roleList = user.getRoleList();
+		    		if(roleList == null){
+		    			roleList = new HashSet<Role>();
+		    		}
+		    		roleList.add(role);
+		    		user.setRoleList(roleList);
 		    		userService.addUser(user);	
 		    	} catch(Exception e){
 		    		System.out.println("BLEHHHHHHHHHHH!");

@@ -38,21 +38,21 @@
 			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<!-- Mockito Test -->
-			
+
 		<dependency>
-	        <groupId>org.mockito</groupId>
-	        <artifactId>mockito-core</artifactId>
-	        <scope>test</scope>
-	    </dependency>
-	    
-	    <dependency>
-	        <groupId>org.mockito</groupId>
-	        <artifactId>mockito-all</artifactId>
-	        <scope>test</scope>
-	    </dependency>
-	    
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<scope>test</scope>
+		</dependency>
+
 		<!-- Bean Validation Dependencies -->
 		<dependency>
 			<groupId>javax.validation</groupId>
@@ -108,6 +108,26 @@
 			<scope>test</scope>
 		</dependency>
 
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-acl</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+		</dependency>
+		
 		<!-- DB Dependencies -->
 		<dependency>
 			<groupId>commons-dbcp</groupId>

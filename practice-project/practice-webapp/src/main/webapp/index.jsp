@@ -1,2 +1,2 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<% response.sendRedirect("registerVoter.htm"); %>
+<% response.sendRedirect("auth/login.htm"); %>

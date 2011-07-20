@@ -28,7 +28,6 @@
 			<list>
 				<value>exist.practice.Org</value>
 				<value>exist.practice.User</value>
-				<value>exist.practice.Role</value>
 			</list>
 		</property>
 		
@@ -44,20 +43,22 @@
 		</property>
 	</bean>
 		
+<<<<<<< HEAD
 	<context:component-scan
 		base-package="exist.practice" />
 		
 	<!-- ========== DAOS ========== --> 
 	<bean id="genericDAO" class="exist.practice.dao.impl.GenericDaoImpl" />
-
+=======
+	<!-- ========== DAOS ========== -->
+	<bean id="genericDao" class="exist.practice.dao.impl.GenericDaoImpl" />
+	 
 	<!-- ========== SERVICE ======= -->
 	<bean id="userService" class="exist.practice.service.impl.UserServiceImpl"/>
 	<bean id="orgService" class="exist.practice.service.impl.OrgServiceImpl"/>
-	<bean id="roleService" class="exist.practice.service.impl.RoleServiceImpl"/>
-	
+>>>>>>> 43e3a56f4b0aec0d40652c59502af69e31ab884d
 	
 	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager"> 
 		<property name="sessionFactory" ref="sessionFactory"/> 
 	</bean>
-
 </beans>
