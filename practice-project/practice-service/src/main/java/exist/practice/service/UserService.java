@@ -13,6 +13,6 @@ public interface UserService {
 
 	public boolean deleteUser(long id, Class<User> clazz);
 
-	public List<User> findUser(String column, String value);
+	public User findUser(String column, String value);
 
 }
