@@ -13,12 +13,12 @@
 
 <p>Click the download links below:</p>
 
-<c:url value="/practice-webapp/report/download/xls" var="downloadXls"/>
+<c:url value="/report/download/xls" var="downloadXls"/>
 <a href="${downloadXls}">Download Excel</a>
 
 <br/>
 
-<c:url value="/practice-webapp/report/download/pdf" var="downloadPdf"/>
+<c:url value="/report/download/pdf" var="downloadPdf"/>
 <a href="${downloadPdf}">Download PDF</a>
 
 </body>
