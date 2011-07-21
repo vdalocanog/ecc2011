@@ -46,6 +46,7 @@ public class LoginLogOutController {
 
 	
 
+	@SuppressWarnings("deprecation")
 	private IDataSet getDataSet() throws Exception {
 	       InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream(FLAT_XML_DATASET);
 	       IDataSet dataset = new FlatXmlDataSet(inputStream);
@@ -69,7 +70,7 @@ public class LoginLogOutController {
 			ModelMap model) {
 		
 		List<User> users = userService.findAllUser();
-		if(users.size()==0){
+		if(users.size()==0 || users == null){
 			try {
 				this.loadData();
 			} catch (Exception e) {

@@ -20,12 +20,12 @@
 		</nav>
 		<section>
 			<div id="userInfo">
-				<p>Name: ${ user.firstName } ${ user.lastName } </p>
-				<p>Email: ${ user.emailAddress } </p>
-				<p>Gender: ${ user.gender } </p>
-				<p>Birthday: ${ user.birthDate } </p> 
-				<p>Home: ${ user.homeAddress } </p>
-				<p>Contact Number: ${ user.contactNumber } </p>
+				<p><span class="bold">Name:</span> ${ user.firstName } ${ user.lastName } </p>
+				<p><span class="bold">Email:</span> ${ user.emailAddress } </p>
+				<p><span class="bold">Gender:</span> ${ user.gender } </p>
+				<p><span class="bold">Birthday:</span> ${ user.birthDate } &nbsp;</p> 
+				<p><span class="bold">Home:</span> ${ user.homeAddress } &nbsp;</p>
+				<p><span class="bold">Contact Number:</span> ${ user.contactNumber } &nbsp;</p>
 				<br />
 			</div> 
 			<hr />

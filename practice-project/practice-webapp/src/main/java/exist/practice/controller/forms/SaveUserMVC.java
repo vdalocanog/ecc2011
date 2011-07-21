@@ -1,5 +1,8 @@
 package exist.practice.controller.forms;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -9,7 +12,9 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import exist.practice.Role;
 import exist.practice.User;
+import exist.practice.service.RoleService;
 import exist.practice.service.UserService;
 import exist.practice.validator.UsernameValidator;
 
@@ -23,21 +28,15 @@ public class SaveUserMVC {
 		unameValidator = new UsernameValidator();
 	}
 	
+	@Autowired
+	private RoleService roleService;
+	
 	private UserService userService;
 	
 	@Autowired
 	public void setUserServiceImpl(UserService userService) {
 		this.userService = userService;
 	}
-	//private UserService userService;
-	//private CandidateService candidateService;
-
-	//@Autowired
-	//public BallotForm(UserService userService, CandidateService candidateService){
-	//	System.out.println("Invoked 1: SaveUserForm");
-	//	this.userService = userService;
-	//	this.candidateService = candidateService;
-	//}
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String showForm(ModelMap model, HttpServletRequest req) {
@@ -59,6 +58,13 @@ public class SaveUserMVC {
 			    if(RegisterUserMVC.isAvailable(user.getUserName())){
 			    	if(user.getPassword().length() > 3){
 				    	if(user.getPassword().equals(req.getParameter("confirmPassword"))){
+				    		Role role = this.roleService.findRole("roleId", "2").get(0);
+							Set<Role> roleList = user.getRoleList();
+							if (roleList == null) {
+								roleList = new HashSet<Role>();
+							}
+							roleList.add(role);
+							user.setRoleList(roleList);
 				    		userService.addUser(user);	
 				    		HttpSession session = req.getSession();
 				    		session.setAttribute("uname", user.getUserName());

@@ -46,12 +46,16 @@ public class WebAppMiniProjMultiActionController {
         return mav;
     }
     
-    @RequestMapping("/viewUser.htm")
-    public ModelAndView viewUser(HttpServletRequest req){
-    	ModelAndView mav = new ModelAndView("viewProfile");
+    /*@RequestMapping("/home.htm")
+    public ModelAndView home(HttpServletRequest req){
+    	ModelAndView mav = new ModelAndView("home");
     	HttpSession session = req.getSession();
+    	session.setAttribute("uname", "romel"); ///////////////// for testing only
     	String uname = (String) session.getAttribute("uname");
-    	mav.addObject("user", userService.findUser("userName", uname));
+    	mav.addObject("uname", uname);
     	return mav;
     }
+    */
+
+    
 }

@@ -36,8 +36,8 @@
 		<section>
 			<div id="message">${ message }</div>
 			<form:form action="saveUser.htm" method="POST"  id="saveUserForm" commandName="user">
-			    <label for="userName">User Name</label>
-			    <form:input type="text" id="uname" path="userName" onkeyup="ajax()" placeholder="required" value="${ user.userName }" REQUIRED="REQUIRED" AUTOFOCUS="AUTOFOCUS"/>
+			    <label for="userName" class="bold2">User Name</label>
+			    <form:input type="text" id="uname" path="userName" placeholder="required" value="${ user.userName }" REQUIRED="REQUIRED" AUTOFOCUS="AUTOFOCUS"/>
 			    <span id="userNameMessage"></span>
 			    
 			    <br />

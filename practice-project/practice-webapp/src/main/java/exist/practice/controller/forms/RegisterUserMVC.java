@@ -29,7 +29,7 @@ public class RegisterUserMVC {
 	}
 	
 	static public boolean isAvailable(final String uname) {
-		if(userService.findUser("userName", uname) == null) return true;
+		if(userService.findUser("userName", uname).size() == 0) return true;
 		return false;
 	}
 	
