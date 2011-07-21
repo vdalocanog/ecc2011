@@ -1,0 +1,86 @@
+@CHARSET "UTF-8";
+
+body {
+	font-size: 12px;
+	font-family: Helvetica;
+}
+
+::-webkit-input-placeholder {
+   font-style:italic;
+   font-size: 10px;
+}
+:-moz-placeholder {
+   font-style:italic;
+}
+
+input[type="text"], input[type="password"], input[type="email"], input[type="number"] { 
+	-webkit-border-radius: 10px; 
+	-moz-border-radius: 10px; 
+	border-radius: 10px; 
+	height: 20px;
+	margin-top: 10px;
+	padding-left:7px;
+}
+
+#wrapper {
+	padding: 20px;
+	margin-left: auto ;
+  	margin-right: auto ;
+	width: 430px;
+	border:1px solid gray;
+	-moz-box-shadow: 10px 10px 5px #888;
+	-webkit-box-shadow: 10px 10px 5px #888;
+	box-shadow: 10px 10px 5px #888;
+	-webkit-border-radius: 10px; 
+	-moz-border-radius: 10px; 
+	border-radius: 10px; 	
+}
+
+#confirmed {
+	font-size: 10px;
+	color: blue;
+	font-style: italic;	
+}
+
+.mismatch {
+	font-size: 10px;
+	color: red;
+	font-style: italic;
+}
+
+#weak{
+	font-size: 10px;
+	color: #8EC928;
+	font-style: italic;
+	font-weight: bold;
+}
+
+#moderate{
+	font-size: 10px;
+	color: #21A474;
+	font-style: italic;
+	font-weight: bold;
+}
+
+#strong{
+	font-size: 10px;
+	color: #0A6544;
+	font-style: italic;
+	font-weight: bold;
+}
+
+#message {
+	font-family: verdana, arial;
+	color: red;	
+}
+
+p span.bold {
+	font-weight: bold;	
+	float: left;
+    width: 120px;
+}
+
+.bold2 {
+		
+}
+

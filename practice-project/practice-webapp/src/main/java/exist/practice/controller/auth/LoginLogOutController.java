@@ -46,6 +46,7 @@ public class LoginLogOutController {
 
 	
 
+	@SuppressWarnings("deprecation")
 	private IDataSet getDataSet() throws Exception {
 	       InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream(FLAT_XML_DATASET);
 	       IDataSet dataset = new FlatXmlDataSet(inputStream);

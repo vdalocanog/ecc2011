@@ -9,7 +9,7 @@
 </head>
 <body>
 <form action="../j_spring_security_check" method="post">
-<div id="error"><c:out value="${error }"></c:out> </div>
+<div id="error">${ error }</div>
 	<label for="username">Username:</label>
 	<input type="text" name="j_username" id="username">
 	<br>
@@ -18,6 +18,6 @@
 	<br>
 	<input type="submit" value="Login">
 </form>
-<a href="../saveUser.htm">Click Here</a> to register.
+<a href="../registerVoter.htm">Click Here</a> to register.
 </body>
 </html>

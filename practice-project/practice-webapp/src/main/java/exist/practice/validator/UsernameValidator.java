@@ -8,7 +8,7 @@ public class UsernameValidator {
 	private Pattern pattern;
 	private Matcher matcher;
 
-	private static final String USERNAME_PATTERN = "^[a-z0-9_-]{3,15}$";
+	private static final String USERNAME_PATTERN = "^[A-Za-z0-9_-]{3,15}$";
 
 	public UsernameValidator() {
 		pattern = Pattern.compile(USERNAME_PATTERN);
