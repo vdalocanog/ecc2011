@@ -14,6 +14,33 @@
 <script type="text/javascript" src="js/jquery-ui-1.8.14.custom/js/jquery-1.5.1.min.js"></script>
 <link rel="stylesheet" href="js/jquery-ui-1.8.14.custom/development-bundle/demos/demos.css">
 <link rel="stylesheet" href="js/jquery-ui-1.8.14.custom/development-bundle/themes/base/jquery.ui.all.css">
+
+<script type="text/javascript">
+     var jq = jQuery.noConflict();
+</script>
+
+<script type="text/javascript">
+function add() {
+ jq(function() {
+  // Call a URL and pass two arguments
+  // Also pass a call back function
+  // See http://api.jquery.com/jQuery.post/
+  // See http://api.jquery.com/jQuery.ajax/
+  // You might find a warning in Firefox: Warning: Unexpected token in attribute selector: '!'
+  // See http://bugs.jquery.com/ticket/7535
+  //jq.post("/spring-mvc-jquery/krams/main/ajax/add",
+  jq.post("/practice-webapp/saveOrg.htm",
+     {  oname:  jq("#oname").val() },
+      function(data){
+       // data contains the result
+       // Assign result to the sum id
+       //jq("#sum").replaceWith('<span id="sum">'+ data + '</span>');
+       jq("#orgNameMessage").replaceWith('<span id="orgNameMessage">glenn'+ data + '</span>');
+     });
+ });
+}
+</script>
+
 </head>
 
 <body>
@@ -25,14 +52,14 @@
 			
 			<form:form action="saveOrg.htm" method="POST"  id="saveOrgForm" commandName="org">
 			
+				<!-- org name must be unique -->
 			    <label for="orgName">Org Name</label>
-			    <form:input type="text" id="oname" path="orgName" onkeyup="ajax()" placeholder="required" value="${ org.orgName }" REQUIRED="REQUIRED" AUTOFOCUS="AUTOFOCUS"/>
+			    <form:input type="text" id="oname" path="orgName" onkeyup="verifyOrgName()" placeholder="required" value="${ org.orgName }" REQUIRED="REQUIRED" AUTOFOCUS="AUTOFOCUS"/>
 			    <span id="orgNameMessage"></span>
 			    
 			  	<br/>
-			  	
-			  	<input type="submit" value="Save Org" id="btnSubmit" />
-			  	<input type="reset" value="Reset" />
+			  	//type="submit"
+			  	<input type="button" value="Save Org" id="btnSubmit" onclick="add()" />
 			  	
 			</form:form>
 			
