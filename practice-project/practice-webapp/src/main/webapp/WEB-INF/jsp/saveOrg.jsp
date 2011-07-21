@@ -20,7 +20,7 @@
 </script>
 
 <script type="text/javascript">
-function add() {
+function verifyOrgName() {
  jq(function() {
   // Call a URL and pass two arguments
   // Also pass a call back function
@@ -28,14 +28,13 @@ function add() {
   // See http://api.jquery.com/jQuery.ajax/
   // You might find a warning in Firefox: Warning: Unexpected token in attribute selector: '!'
   // See http://bugs.jquery.com/ticket/7535
-  //jq.post("/spring-mvc-jquery/krams/main/ajax/add",
-  jq.post("/practice-webapp/saveOrg.htm",
+  jq.post("/practice-webapp/verifyOrgName.htm",
      {  oname:  jq("#oname").val() },
       function(data){
        // data contains the result
        // Assign result to the sum id
-       //jq("#sum").replaceWith('<span id="sum">'+ data + '</span>');
-       jq("#orgNameMessage").replaceWith('<span id="orgNameMessage">glenn'+ data + '</span>');
+       jq("#orgNameMessage").replaceWith('<span id="orgNameMessage">'+ data + '</span>');
+       jq("#message").replaceWith('');
      });
  });
 }
@@ -58,8 +57,8 @@ function add() {
 			    <span id="orgNameMessage"></span>
 			    
 			  	<br/>
-			  	//type="submit"
-			  	<input type="button" value="Save Org" id="btnSubmit" onclick="add()" />
+			  	
+			  	<input type="submit" value="Save Org" name="btnSubmit" id="btnSubmit" />
 			  	
 			</form:form>
 			

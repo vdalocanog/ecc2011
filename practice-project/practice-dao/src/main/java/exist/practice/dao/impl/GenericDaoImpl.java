@@ -82,6 +82,21 @@ public class GenericDaoImpl<T> implements GenericDao<T> {// extends
 		}
 		return result;
 	}
+	
+	@SuppressWarnings("unchecked")
+    @Transactional(readOnly = false)
+    public List<T> findContains(String table, String column, String value) {
+        // TODO Auto-generated method stub
+        String query = "FROM "+table+" WHERE "+column+" LIKE '%"+value+"%'";
+        List<T> result = new ArrayList<T>();
+        try{
+            result = hibernateTemplate.find(query);
+        }catch(Exception e){
+            e.printStackTrace();
+            result = null;
+        }
+        return result;
+    }
 
 	public boolean update(T object) {
 		// TODO Auto-generated method stub
