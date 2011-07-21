@@ -49,7 +49,7 @@ public class SaveOrgMVC {
 
         } else error += "Make sure to fill-up all required fields.";
         
-        error = "received: " + ;
+        error = "received: " + req.getParameter( "oname" );
 
         return error;
     }
