@@ -36,9 +36,18 @@
 		<section>
 			<div id="message">${ message }</div>
 			<form:form action="saveUser.htm" method="POST"  id="saveUserForm" commandName="user">
-			    <label for="userName" class="bold2">User Name</label>
-			    <form:input type="text" id="uname" path="userName" placeholder="required" value="${ user.userName }" REQUIRED="REQUIRED" AUTOFOCUS="AUTOFOCUS"/>
-			    <span id="userNameMessage"></span>
+			
+			    <c:choose>
+					<c:when test="${action == 'edit'}">
+					</c:when>
+					<c:otherwise>
+					    <label for="userName" class="bold2">User Name</label>
+					    <form:input type="text" id="uname" path="userName" placeholder="required" value="${ user.userName }" REQUIRED="REQUIRED" AUTOFOCUS="AUTOFOCUS"/>
+					    <span id="userNameMessage"></span>
+					</c:otherwise>
+				</c:choose>
+			    
+			    
 			    
 			    <br />
 			

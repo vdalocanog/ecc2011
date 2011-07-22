@@ -28,6 +28,7 @@
 			/> -->
 		<security:custom-filter ref="authenticationFilter"
 			position="FORM_LOGIN_FILTER" />
+
 	</security:http>
 
 	<security:authentication-manager />
