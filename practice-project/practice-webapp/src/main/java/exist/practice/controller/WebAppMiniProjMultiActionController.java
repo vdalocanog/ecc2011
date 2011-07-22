@@ -53,6 +53,8 @@ public class WebAppMiniProjMultiActionController {
         user.setOrgs( orgList );
         */
 
+        System.out.println( "USERNAME >>>>>>>>>>>>>>>>> " + SecurityContextHolder.getContext().getAuthentication().getName() );
+        
         List<User> userList = userService.findUser("userName", SecurityContextHolder.getContext().getAuthentication().getName() );
         
         if ( userList.size() > 0 ) {
