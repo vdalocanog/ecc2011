@@ -89,18 +89,24 @@ public class WebAppMiniProjMultiActionController {
         
         List<User> userList = userService.findUser("userName", SecurityContextHolder.getContext().getAuthentication().getName() );
         
+        
         if ( userList.size() > 0 ) {
             user = userList.get(0);
             
             String orgId = req.getParameter("orgId");
             Org org = orgService.findOrg("orgId", orgId ).get(0);
             Set<Org> orgSet = user.getOrgs();
-            orgSet.add( org );
             
-            user.setOrgs( orgSet );
-            
-            mav.addObject( "message", "join org successful" );
+            try {
+                orgSet.add( org );
+                user.setOrgs( orgSet );
+                userService.updateUser(user);
+                mav.addObject( "message", "join org successful" );
+            } catch (Exception e) {
+                mav.addObject( "message", "you already joined this org" );
+            }
         }
+        
         
         return mav;
     }
