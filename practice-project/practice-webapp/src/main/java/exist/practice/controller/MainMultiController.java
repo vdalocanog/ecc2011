@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,7 +26,7 @@ public class MainMultiController {
 	@RequestMapping("/home.htm")
     public String home(HttpServletRequest req, ModelMap model){
     	HttpSession session = req.getSession();
-    	session.setAttribute("uname", "i4chub2x"); ///////////////// for testing only
+    	session.setAttribute("uname", SecurityContextHolder.getContext().getAuthentication().getName() ); 
     	String uname = (String) session.getAttribute("uname");
     	model.put("uname", uname);
     	return "home";

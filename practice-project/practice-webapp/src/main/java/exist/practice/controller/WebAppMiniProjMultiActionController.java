@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -51,11 +52,15 @@ public class WebAppMiniProjMultiActionController {
         Org org2 = new Org(); org2.setOrgId( 2 ); org2.setOrgName( "B" ); orgList.add( org2 );
         user.setOrgs( orgList );
         */
+
+        List<User> userList = userService.findUser("userName", SecurityContextHolder.getContext().getAuthentication().getName() );
         
-        user = userService.findUser("userId", "2").get(0);
+        if ( userList.size() > 0 ) {
+            user = userList.get(0);
         
-        mav.addObject( "user", user );
-        mav.addObject( "orgList", user.getOrgs() );
+            mav.addObject( "user", user );
+            mav.addObject( "orgList", user.getOrgs() );
+        }
         
         return mav;
     }
