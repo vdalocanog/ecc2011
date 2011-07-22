@@ -46,16 +46,18 @@ public class WebAppMiniProjMultiActionController {
         return mav;
     }
     
-    /*@RequestMapping("/home.htm")
-    public ModelAndView home(HttpServletRequest req){
-    	ModelAndView mav = new ModelAndView("home");
-    	HttpSession session = req.getSession();
-    	session.setAttribute("uname", "romel"); ///////////////// for testing only
-    	String uname = (String) session.getAttribute("uname");
-    	mav.addObject("uname", uname);
-    	return mav;
+    @RequestMapping("/viewOrgs.htm")
+    public ModelAndView viewOrgs(HttpServletRequest req, HttpServletResponse res) throws Exception {
+        ModelAndView mav = new ModelAndView("viewOrgs");
+ 
+        Set<Org> orgList = new HashSet<Org>();
+        Org org1 = new Org(); org1.setOrgId( 1 ); org1.setOrgName( "A" ); orgList.add( org1 );
+        Org org2 = new Org(); org2.setOrgId( 2 ); org2.setOrgName( "B" ); orgList.add( org2 );
+ 
+        mav.addObject( "orgList", orgList );
+        
+        return mav;
     }
-    */
 
     
 }
