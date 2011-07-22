@@ -132,5 +132,20 @@ public class WebAppMiniProjMultiActionController {
         return mav;
     }
     
+    @RequestMapping("/deleteOrg.htm")
+    public ModelAndView deleteOrg(HttpServletRequest req, HttpServletResponse res) throws Exception {
+        ModelAndView mav = new ModelAndView("viewOrgs");
+        
+        mav.addObject( "message", "Org DELETED" );
+ 
+        Set<User> memberList = new LinkedHashSet<User>();
+
+        Long orgId = Long.parseLong( req.getParameter("orgId") );
+        orgService.deleteOrg( orgId );
+  
+        System.out.println( "orgId >>>>>>>>>> " + memberList );
+        
+        return mav;
+    }
     
 }
