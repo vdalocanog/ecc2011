@@ -22,7 +22,7 @@
 			authentication-failure-url="/auth/login.htm?error=true"
 			default-target-url="/home.htm" />
 		<security:logout invalidate-session="true"
-			logout-success-url="/auth/login.htm" logout-url="/auth/logout.htm" />
+			logout-success-url="/auth/login.htm"  />
 	</security:http>
 
 	<security:authentication-manager>
