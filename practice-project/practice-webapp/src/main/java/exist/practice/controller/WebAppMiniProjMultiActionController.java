@@ -3,6 +3,7 @@ package exist.practice.controller;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -107,9 +108,29 @@ public class WebAppMiniProjMultiActionController {
             }
         }
         
-        
         return mav;
     }
 
+    
+    @RequestMapping("/viewMembers.htm")
+    public ModelAndView viewMembers(HttpServletRequest req, HttpServletResponse res) throws Exception {
+        ModelAndView mav = new ModelAndView("viewMembers");
+        
+        //mav.addObject( "message", "No Members" );
+ 
+        Set<User> memberList = new LinkedHashSet<User>();
+
+        String orgId = req.getParameter("orgId");
+        Org org = orgService.findOrg("orgId", orgId ).get(0);
+        memberList = org.getMembers();
+        
+        mav.addObject( "memberList", memberList );
+        
+        System.out.println( "A >>>>>>>>>> " + orgId );
+        System.out.println( "B >>>>>>>>>> " + memberList );
+        
+        return mav;
+    }
+    
     
 }
