@@ -78,6 +78,32 @@ public class WebAppMiniProjMultiActionController {
         
         return mav;
     }
+    
+    @RequestMapping("/joinOrg.htm")
+    public ModelAndView joinOrg(HttpServletRequest req, HttpServletResponse res) throws Exception {
+        ModelAndView mav = new ModelAndView("viewOrgs");
+        
+        mav.addObject( "message", "join org FAIL" );
+ 
+        User user = new User();
+        
+        List<User> userList = userService.findUser("userName", SecurityContextHolder.getContext().getAuthentication().getName() );
+        
+        if ( userList.size() > 0 ) {
+            user = userList.get(0);
+            
+            String orgId = req.getParameter("orgId");
+            Org org = orgService.findOrg("orgId", orgId ).get(0);
+            Set<Org> orgSet = user.getOrgs();
+            orgSet.add( org );
+            
+            user.setOrgs( orgSet );
+            
+            mav.addObject( "message", "join org successful" );
+        }
+        
+        return mav;
+    }
 
     
 }
