@@ -33,7 +33,7 @@
 		<security:custom-filter position="CONCURRENT_SESSION_FILTER"
 			ref="concurrencyFilter" />
 		<security:session-management
-
+			session-authentication-strategy-ref="sas" />
 	</security:http>
 
 	<security:authentication-manager />
