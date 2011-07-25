@@ -56,7 +56,7 @@
 			    <span id="pwordmsg"></span> <br />
 			    
 			    <label for="confirmPassword">Confirm Password</label>
-			    <input type="password" id="pword2" name="confirmPassword" placeholder="required" REQUIRED="REQUIRED" />
+			    <input type="password" id="pword2" name="confirmPassword" placeholder="required" value="${ confirmPassword }" REQUIRED="REQUIRED" />
 			    <span id="pword2msg"></span> 
 			    
 			    <br />
@@ -76,7 +76,6 @@
 			    <label for="gender">Gender</label>
 			    <form:input type="radio" path='gender' value='Male' />Male 
 			    <form:input type="radio" path='gender' value='Female' />Female 
-			    <form:input type="radio" path='gender' value='Others' CHECKED="CHECKED"/>Others <br />
 			    
 			    <label for="birthDate">Birth Date</label>
 			    <input type="text" id="birthDate" name="birthDate" readonly  value="${ user.birthDate }"/> <br />
