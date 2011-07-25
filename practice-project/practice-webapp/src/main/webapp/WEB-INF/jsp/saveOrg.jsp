@@ -49,7 +49,7 @@ function verifyOrgName() {
 		
 			<div id="message">${ message }</div>
 			
-			<form:form action="saveOrg.htm" method="POST"  id="saveOrgForm" commandName="org">
+			<form:form method="POST"  id="saveOrgForm" commandName="org">
 			
 				<!-- org name must be unique -->
 			    <label for="orgName">Org Name</label>

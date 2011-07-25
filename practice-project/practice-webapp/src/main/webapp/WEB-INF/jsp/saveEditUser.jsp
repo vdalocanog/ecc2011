@@ -35,7 +35,7 @@
 	<div id="wrapper">
 		<section>
 			<div id="message">${ message }</div>
-			<form:form action="saveUser.htm" method="POST"  id="saveUserForm" commandName="user">
+			<form:form method="POST"  id="saveUserForm" commandName="user">
 			
 			    <c:choose>
 					<c:when test="${action == 'edit'}">
@@ -44,20 +44,17 @@
 					    <label for="userName" class="bold2">User Name</label>
 					    <form:input type="text" id="uname" path="userName" placeholder="required" value="${ user.userName }" REQUIRED="REQUIRED" AUTOFOCUS="AUTOFOCUS"/>
 					    <span id="userNameMessage"></span>
+					    <br />
+			
+					    <label for="password">Password</label>
+					    <form:input type="password" id="pword" path="password" placeholder="required" value="${ user.password }" REQUIRED="REQUIRED" />
+					    <span id="pwordmsg"></span> <br />
+					    
+					    <label for="confirmPassword">Confirm Password</label>
+					    <input type="password" id="pword2" name="confirmPassword" placeholder="required" value="${ confirmPassword }" REQUIRED="REQUIRED" />
+					    <span id="pword2msg"></span> 
 					</c:otherwise>
 				</c:choose>
-			    
-			    
-			    
-			    <br />
-			
-			    <label for="password">Password</label>
-			    <form:input type="password" id="pword" path="password" placeholder="required" value="${ user.password }" REQUIRED="REQUIRED" />
-			    <span id="pwordmsg"></span> <br />
-			    
-			    <label for="confirmPassword">Confirm Password</label>
-			    <input type="password" id="pword2" name="confirmPassword" placeholder="required" value="${ confirmPassword }" REQUIRED="REQUIRED" />
-			    <span id="pword2msg"></span> 
 			    
 			    <br />
 			    
@@ -72,13 +69,13 @@
 			    
 			    <label for="emailAddress">Email Address</label>
 			    <form:input type="email" path="emailAddress"  placeholder="required" value="${ user.emailAddress }" REQUIRED="REQUIRED"/> <br />
-			    
+
 			    <label for="gender">Gender</label>
-			    <form:input type="radio" path='gender' value='Male' />Male 
-			    <form:input type="radio" path='gender' value='Female' />Female 
+			    <form:radiobutton path='gender' value='Male' />Male 
+			    <form:radiobutton path='gender' value='Female' />Female <br />
 			    
 			    <label for="birthDate">Birth Date</label>
-			    <input type="text" id="birthDate" name="birthDate" readonly  value="${ user.birthDate }"/> <br />
+			    <form:input type="text" path="birthDate" id="birthDate" name="birthDate" value="${ user.birthDate }" readonly="true"/> <br />
 			      
 			    <label for="homeAddress">Home Address</label>
 			    <form:input type="text" path="homeAddress" value="${ user.homeAddress }" /> <br />
@@ -97,6 +94,9 @@
 			  Your browser does not support the audio element.
 			</audio>
 		</section>
+		
+		( <a href="editPassword.htm">Edit Password</a> )
+		
 	</div>
 </body>
 </html>
