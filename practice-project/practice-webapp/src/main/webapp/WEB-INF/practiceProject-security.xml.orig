@@ -29,11 +29,15 @@
 		<security:custom-filter ref="authenticationFilter"
 			position="FORM_LOGIN_FILTER" />
 
+<<<<<<< HEAD
 		<!-- For Session -->
 		<security:custom-filter position="CONCURRENT_SESSION_FILTER"
 			ref="concurrencyFilter" />
 		<security:session-management
+			session-authentication-strategy-ref="sas" />
 
+=======
+>>>>>>> 8ba7723614cc84873cd1778ff7ea7e095664b9bf
 	</security:http>
 
 	<security:authentication-manager />
@@ -46,6 +50,7 @@
 		/> -->
 	<bean id="authenticationFilter"
 		class="org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter"
+<<<<<<< HEAD
 		p:sessionAuthenticationStrategy-ref="sas" 
 		p:authenticationManager-ref="customAuthenticationManager"
 		p:authenticationFailureHandler-ref="customAuthenticationFailureHandler"
@@ -84,3 +89,27 @@
 		<constructor-arg name="sessionRegistry" ref="sessionRegistry" />
 	</bean>
 </beans>
+=======
+		p:authenticationManager-ref="customAuthenticationManager"
+		p:authenticationFailureHandler-ref="customAuthenticationFailureHandler"
+		p:authenticationSuccessHandler-ref="customAuthenticationSuccessHandler" />
+
+	<bean id="customAuthenticationManager"
+		class="exist.practice.service.security.filter.CustomAuthenticationManager" />
+
+	<bean id="customAuthenticationFailureHandler"
+		class="org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler"
+		p:defaultFailureUrl="/auth/login.htm?error=true" />
+
+	<bean id="customAuthenticationSuccessHandler"
+		class="org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler"
+		p:defaultTargetUrl="/home.htm" />
+
+	<bean id="authenticationEntryPoint"
+		class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint"
+		p:loginFormUrl="/auth/login.htm" />
+
+	<bean id="passwordEncoder"
+		class="org.springframework.security.authentication.encoding.Md5PasswordEncoder" />
+</beans>
+>>>>>>> 8ba7723614cc84873cd1778ff7ea7e095664b9bf
