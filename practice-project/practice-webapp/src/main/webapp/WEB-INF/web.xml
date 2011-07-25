@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <!-- <<<<<<< HEAD -->
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
-<!-- =======
-<web-app id="WebApp_ID" version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
->>>>>>> c3ef5ef07a4c9facf4e2685df2b8bd066ac5e3ea -->
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	version="3.0">
+	<!-- ======= <web-app id="WebApp_ID" version="2.4" xmlns="http://java.sun.com/xml/ns/j2ee" 
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+		http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"> >>>>>>> c3ef5ef07a4c9facf4e2685df2b8bd066ac5e3ea -->
 
 	<display-name>practiceProject</display-name>
 
@@ -17,7 +20,7 @@
 		<filter-name>springSecurityFilterChain</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
-	
+
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
@@ -30,6 +33,11 @@
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 
+	<listener>
+		<listener-class>
+			org.springframework.security.web.session.HttpSessionEventPublisher</listener-class>
+	</listener>
+
 	<!-- ========================== SERVLETS ======================================== -->
 	<servlet>
 		<servlet-name>practiceProject</servlet-name>
@@ -38,7 +46,7 @@
 	</servlet>
 
 	<!-- ========================== SERVLET MAPPINGS ================================= -->
-	
+
 	<servlet-mapping>
 		<servlet-name>practiceProject</servlet-name>
 		<url-pattern>*.htm</url-pattern>
@@ -53,7 +61,7 @@
 		<servlet-name>practiceProject</servlet-name>
 		<url-pattern>/jasper/*</url-pattern>
 	</servlet-mapping>
-	
+
 	<!-- ========================== OTHERS ================================= -->
 
 	<welcome-file-list>

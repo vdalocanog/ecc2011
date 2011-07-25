@@ -12,7 +12,7 @@
 <body>
 	<h1>Welcome ${ uname }</h1>
 	<ul>
-		<li><a href="viewProfile.htm">View Profile</a></li>
+		<li><a href="viewUser.htm">View Profile</a></li>
 		<li><a href="editUser.htm">Edit Profile</a></li>
 		<li><a href="viewOrgs.htm">View Organizations</a></li>
 		<li><a href="deleteUser.htm">Delete Account</a></li>
@@ -24,5 +24,16 @@
 		<hr />
 		<li><a href="<c:url value="j_spring_security_logout"/>">Log-out</a></li>
 	</ul>
+	<p>
+		Username:${user.userName }
+		<br>
+		First Name: ${user.firstName }
+		<br>
+		Last Name: ${user.lastName }
+		<br>
+		Gender: ${user.gender }
+		<br>
+		E-mail: ${user.emailAddress }
+	</p>
 </body>
 </html>

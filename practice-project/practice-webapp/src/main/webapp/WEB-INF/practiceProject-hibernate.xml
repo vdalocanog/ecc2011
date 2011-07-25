@@ -1,29 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:p="http://www.springframework.org/schema/p"
-	xmlns:dwr="http://www.directwebremoting.org/schema/spring-dwr"
-	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 	http://www.springframework.org/schema/beans/spring-beans.xsd
 	http://www.springframework.org/schema/context
 	http://www.springframework.org/schema/context/spring-context.xsd
-	http://www.directwebremoting.org/schema/spring-dwr 
-    http://www.directwebremoting.org/schema/spring-dwr-2.0.xsd">
+	http://www.springframework.org/schema/mvc
+    http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+	<context:annotation-config />
+	
+	<context:component-scan base-package="exist.practice" />
+
+	<mvc:annotation-driven />
 
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url"
-			value="jdbc:mysql://localhost:3306/practice_project" />
+		<property name="url" value="jdbc:mysql://localhost:3306/practice_project" />
 		<property name="username" value="root" />
-		<property name="password" value="" />
+		<property name="password" value="root" />
 	</bean>
 
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		
+
 		<property name="annotatedClasses">
 			<list>
 				<value>exist.practice.Org</value>
@@ -31,33 +34,31 @@
 				<value>exist.practice.Role</value>
 			</list>
 		</property>
-		
+
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.show_sql">true</prop>
 				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
 				<prop key="hibernate.hbm2ddl.auto">update</prop>
-			    <prop key="hibernate.format_sql">true</prop>
-			    <prop key="hibernate.current_session_context_class">thread</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.current_session_context_class">thread</prop>
 				<prop key="hibernate.cache.provider_class">org.hibernate.cache.NoCacheProvider</prop>
 			</props>
 		</property>
 	</bean>
-		
-	<context:component-scan
-		base-package="exist.practice" />
-		
-	<!-- ========== DAOS ========== --> 
+
+	<!-- ========== DAOS ========== -->
 	<bean id="genericDAO" class="exist.practice.dao.impl.GenericDaoImpl" />
 
 	<!-- ========== SERVICE ======= -->
-	<bean id="userService" class="exist.practice.service.impl.UserServiceImpl"/>
-	<bean id="orgService" class="exist.practice.service.impl.OrgServiceImpl"/>
-	<bean id="roleService" class="exist.practice.service.impl.RoleServiceImpl"/>
-	
-	
-	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager"> 
-		<property name="sessionFactory" ref="sessionFactory"/> 
+	<bean id="userService" class="exist.practice.service.impl.UserServiceImpl" />
+	<bean id="orgService" class="exist.practice.service.impl.OrgServiceImpl" />
+	<bean id="roleService" class="exist.practice.service.impl.RoleServiceImpl" />
+
+
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
 </beans>

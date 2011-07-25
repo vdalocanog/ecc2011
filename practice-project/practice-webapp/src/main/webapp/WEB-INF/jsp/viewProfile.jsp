@@ -43,6 +43,7 @@
 					<c:otherwise>
 					    <p>Wala kay organisasyon nga gi-apilan! 
 					    Click <a href="org.htm">here</a> para mu-apil.</p>
+					    <p>Click <a href="#">here</a> to view printable version.</p>
 					</c:otherwise>
 				</c:choose>
 			</div>
