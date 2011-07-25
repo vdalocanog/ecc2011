@@ -69,12 +69,7 @@
 			    
 			    <label for="emailAddress">Email Address</label>
 			    <form:input type="email" path="emailAddress"  placeholder="required" value="${ user.emailAddress }" REQUIRED="REQUIRED"/> <br />
-			    
-			    
-			    
-			    
-			    
-			    
+
 			    <label for="gender">Gender</label>
 			    <form:radiobutton path='gender' value='Male' />Male 
 			    <form:radiobutton path='gender' value='Female' />Female <br />
