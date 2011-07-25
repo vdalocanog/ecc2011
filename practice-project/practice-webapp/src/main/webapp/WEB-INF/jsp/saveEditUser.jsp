@@ -94,6 +94,9 @@
 			  Your browser does not support the audio element.
 			</audio>
 		</section>
+		
+		( <a href="editPassword.htm">Edit Password</a> )
+		
 	</div>
 </body>
 </html>
