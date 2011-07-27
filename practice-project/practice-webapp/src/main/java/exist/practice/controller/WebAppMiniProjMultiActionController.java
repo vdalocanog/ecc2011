@@ -86,29 +86,45 @@ public class WebAppMiniProjMultiActionController {
         
         mav.addObject( "message", "join org FAIL" );
  
-        User user = new User();
-        
+        /*
         List<User> userList = userService.findUser("userName", SecurityContextHolder.getContext().getAuthentication().getName() );
         
         
         if ( userList.size() > 0 ) {
-            user = userList.get(0);
+            User usr = userList.get(0);
             
             String orgId = req.getParameter("orgId");
             Org org = orgService.findOrg("orgId", orgId ).get(0);
-            Set<Org> orgSet = user.getOrgs();
+            Set<Org> orgSet = usr.getOrgs();
             
             try {
                 orgSet.add( org );
-                user.setOrgs( orgSet );
-                userService.updateUser(user);
+                //usr.setOrgs( orgSet );
+                userService.updateUser(usr);
                 mav.addObject( "message", "join org successful" );
             } catch (Exception e) {
                 mav.addObject( "message", "you already joined this org" );
             }
         }
+        */
+
+        String orgId = req.getParameter("orgId");
+        Org org = orgService.findOrg("orgId", orgId ).get(0);
+        Set<User> userSet = org.getMembers();
         
+        User usr = userService.findUser("userName", SecurityContextHolder.getContext().getAuthentication().getName() ).get(0);
+            
+        try {
+            userSet.add( usr );
+            org.setMembers(userSet);
+            orgService.updateOrg(org);
+            mav.addObject( "message", "join org successful" );
+        } catch (Exception e) {
+            mav.addObject( "message", "you already joined this org" );
+        }
+       
         return mav;
+        
     }
 
     

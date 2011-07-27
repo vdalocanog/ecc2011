@@ -12,7 +12,7 @@
 <body>
 	<h1>Welcome ${ uname }</h1>
 	<ul>
-		<li><a href="viewUser.htm">View Profile</a></li>
+		<li><a href="viewProfile.htm">View Profile</a></li>
 		<li><a href="editUser.htm">Edit Profile</a></li>
 		<li><a href="viewOrgs.htm">View Organizations</a></li>
 		<li><a href="deleteUser.htm">Delete Account</a></li>

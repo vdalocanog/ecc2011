@@ -38,7 +38,7 @@
 					    	</c:forEach>
 					    </ul>
 					    <div id="orgReport">
-							<a href="jasper/report/download">Download Report</a>
+							<a href="jasper/report/org/download">Download Report</a>
 						</div>
 					</c:when>
 				</c:choose>
