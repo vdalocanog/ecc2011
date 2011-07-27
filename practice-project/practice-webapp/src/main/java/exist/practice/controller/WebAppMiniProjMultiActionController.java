@@ -60,9 +60,7 @@ public class WebAppMiniProjMultiActionController {
         
         if ( userList.size() > 0 ) {
             user = userList.get(0);
-        
             mav.addObject( "user", user );
-            mav.addObject( "orgList", user.getOrgs() );
         }
         
         return mav;

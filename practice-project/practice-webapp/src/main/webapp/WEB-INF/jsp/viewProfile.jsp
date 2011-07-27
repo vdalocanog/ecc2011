@@ -31,10 +31,10 @@
 			<hr />
 			<div id="userOrgs">
 				<c:choose>
-					<c:when test="${fn:length(orgList) > 0}">
+					<c:when test="${fn:length(user.orgs) > 0}">
 					    <h4>Organizations: </h4>
 					    <ul>
-					   		<c:forEach items="${orgList}" var="org" varStatus="i">
+					   		<c:forEach items="${user.orgs}" var="org" varStatus="i">
 					    		<li><a href="viewMembers.htm?orgId=${ org.orgId }">${ org.orgName }</a></li>
 					    	</c:forEach>
 					    </ul>
