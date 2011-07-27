@@ -25,7 +25,8 @@ import exist.practice.service.UserService;
 
 @Controller
 public class WebAppMiniProjMultiActionController {
-	
+    //Refer to MainMultiController
+	/*
 	private UserService userService;
 	
 	private OrgService orgService;
@@ -45,14 +46,6 @@ public class WebAppMiniProjMultiActionController {
         ModelAndView mav = new ModelAndView("viewProfile");
         
         User user = new User();
-        
-        /*
-        user.setFirstName( "Glenn" );
-        Set<Org> orgList = new HashSet<Org>();
-        Org org1 = new Org(); org1.setOrgId( 1 ); org1.setOrgName( "A" ); orgList.add( org1 );
-        Org org2 = new Org(); org2.setOrgId( 2 ); org2.setOrgName( "B" ); orgList.add( org2 );
-        user.setOrgs( orgList );
-        */
 
         System.out.println( "USERNAME >>>>>>>>>>>>>>>>> " + SecurityContextHolder.getContext().getAuthentication().getName() );
         
@@ -83,28 +76,6 @@ public class WebAppMiniProjMultiActionController {
         ModelAndView mav = new ModelAndView("viewOrgs");
         
         mav.addObject( "message", "join org FAIL" );
- 
-        /*
-        List<User> userList = userService.findUser("userName", SecurityContextHolder.getContext().getAuthentication().getName() );
-        
-        
-        if ( userList.size() > 0 ) {
-            User usr = userList.get(0);
-            
-            String orgId = req.getParameter("orgId");
-            Org org = orgService.findOrg("orgId", orgId ).get(0);
-            Set<Org> orgSet = usr.getOrgs();
-            
-            try {
-                orgSet.add( org );
-                //usr.setOrgs( orgSet );
-                userService.updateUser(usr);
-                mav.addObject( "message", "join org successful" );
-            } catch (Exception e) {
-                mav.addObject( "message", "you already joined this org" );
-            }
-        }
-        */
 
         String orgId = req.getParameter("orgId");
         Org org = orgService.findOrg("orgId", orgId ).get(0);
@@ -161,5 +132,6 @@ public class WebAppMiniProjMultiActionController {
         
         return mav;
     }
+    */
     
 }
