@@ -102,7 +102,8 @@ public class GenericDaoImpl<T> implements GenericDao<T> {// extends
 		// TODO Auto-generated method stub
 		boolean result = false;
 		try{
-			hibernateTemplate.update(object);
+			//hibernateTemplate.update(object);
+		    hibernateTemplate.merge(object);
 			result = true;
 		}catch(Exception e){
 			e.printStackTrace();
