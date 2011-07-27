@@ -8,32 +8,38 @@
 <head>
 <meta charset="UTF-8">
 <title>${ uname }</title>
+<link rel="stylesheet" type="text/css" href="resources/css/register.css" media="screen" />
 </head>
 <body>
-	<h1>Welcome ${ uname }</h1>
-	<ul>
-		<li><a href="viewProfile.htm">View Profile</a></li>
-		<li><a href="editUser.htm">Edit Profile</a></li>
-		<li><a href="viewOrgs.htm">View Organizations</a></li>
-		<li><a href="deleteUser.htm">Delete Account</a></li>
+
+	<div id="wrapper">
+		<header>
+		</header>
+		<nav>
+		</nav>
+		<section>
+			
+			<h1>Welcome ${ uname }</h1>
+			<ul>
+				<li><a href="viewProfile.htm">View Profile</a></li>
+				<li><a href="editUser.htm">Edit Profile</a></li>
+				<li><a href="viewOrgs.htm">View Organizations</a></li>
+				<li><a href="deleteUser.htm">Delete Account</a></li>
+				
+				<sec:authorize access="hasRole('ROLE_ADMIN')">
+					<li><a href="saveOrg.htm">Create Org</a></li>
+				</sec:authorize>
+				
+				<hr />
+				<li><a href="<c:url value="j_spring_security_logout"/>">Log-out</a></li>
+			</ul>
 		
-		<sec:authorize access="hasRole('ROLE_ADMIN')">
-			<li><a href="saveOrg.htm">Create Org</a></li>
-		</sec:authorize>
-		
-		<hr />
-		<li><a href="<c:url value="j_spring_security_logout"/>">Log-out</a></li>
-	</ul>
-	<p>
-		Username:${user.userName }
-		<br>
-		First Name: ${user.firstName }
-		<br>
-		Last Name: ${user.lastName }
-		<br>
-		Gender: ${user.gender }
-		<br>
-		E-mail: ${user.emailAddress }
-	</p>
+		</section>
+		<aside>
+		</aside>
+		<footer>
+		</footer>
+	</div>
+	
 </body>
 </html>
