@@ -96,49 +96,78 @@ public class UserJasperController {
     }
     
     /**
+     * 
+     * @param modelAndView
+     * @return collection of all data sources to be used by the report
+     */
+    private Map<String,Object> setUpDataSources(ModelAndView modelAndView) {
+     // Retrieve our data from a custom data provider
+        // Our data comes from a DAO layer
+        //JasperDAO dataprovider = new JasperDAO();
+        
+        // Assign the datasource to an instance of JRDataSource
+        // JRDataSource is the datasource that Jasper understands
+        // This is basically a wrapper to Java's collection classes
+        JRDataSource datasource  = this.getDataSource();
+        JRDataSource subDatasource  = this.getSubDataSource();
+        
+        // In order to use Spring's built-in Jasper support, 
+        // We are required to pass our datasource as a map parameter
+        // parameterMap is the Model of our application
+        Map<String,Object> parameterMap = new HashMap<String,Object>();
+        
+        // We pass two datasources here:
+        // "datasource" is used by the main report.
+        // This is declared in the /WEB-INF/jasper-views.xml
+         
+        // "JasperCustomSubReportDatasource" is used by the sub-report
+        // This is declared  in the master report named tree-template.jrxml
+        // It is also declared in the /WEB-INF/jasper-views.xml
+         
+        // Both datasources use the same datasource
+        // You can provide different datasources
+        parameterMap.put("datasource", datasource);
+        parameterMap.put("JasperCustomSubReportDatasource", subDatasource);
+        
+        return parameterMap;
+    }
+    
+    /**
      * Retrieves the download file in XLS format
      * 
      * @return
      */
-    @RequestMapping(value = "/download/pdf", method = RequestMethod.GET)
-    public ModelAndView doSalesReportPDF(ModelAndView modelAndView) 
-		 {
-		logger.debug("Received request to download PDF report");
+    @RequestMapping(value = "/download/xls", method = RequestMethod.GET)
+    public ModelAndView doSalesReportXLS(ModelAndView modelAndView)  {
+		logger.debug("Received request to download XLS report");
 		
-		// Retrieve our data from a custom data provider
-		// Our data comes from a DAO layer
-		//JasperDAO dataprovider = new JasperDAO();
+		Map<String,Object> parameterMap = setUpDataSources(modelAndView);
 		
-		// Assign the datasource to an instance of JRDataSource
-		// JRDataSource is the datasource that Jasper understands
-		// This is basically a wrapper to Java's collection classes
-		JRDataSource datasource  = this.getDataSource();
-		JRDataSource subDatasource  = this.getSubDataSource();
-		
-		// In order to use Spring's built-in Jasper support, 
-		// We are required to pass our datasource as a map parameter
-		// parameterMap is the Model of our application
-		Map<String,Object> parameterMap = new HashMap<String,Object>();
-		
-		// We pass two datasources here:
-		// "datasource" is used by the main report.
-		// This is declared in the /WEB-INF/jasper-views.xml
-		 
-		// "JasperCustomSubReportDatasource" is used by the sub-report
-		// This is declared  in the master report named tree-template.jrxml
-		// It is also declared in the /WEB-INF/jasper-views.xml
-		 
-		// Both datasources use the same datasource
-		// You can provide different datasources
-		parameterMap.put("datasource", datasource);
-		parameterMap.put("JasperCustomSubReportDatasource", subDatasource);
-		
-		// pdfReport is the View of our application
+		// xlsUserReport is the View of our application
 		// This is declared inside the /WEB-INF/jasper-views.xml
-		modelAndView = new ModelAndView("pdfUserReport", parameterMap);
+		modelAndView = new ModelAndView("xlsUserReport", parameterMap);
 		
 		// Return the View and the Model combined
 		return modelAndView;
 	}
+    
+    /**
+     * Retrieves the download file in PDF format
+     * 
+     * @return
+     */
+    @RequestMapping(value = "/download/pdf", method = RequestMethod.GET)
+    public ModelAndView doSalesReportPDF(ModelAndView modelAndView)  {
+        logger.debug("Received request to download PDF report");
+        
+        Map<String,Object> parameterMap = setUpDataSources(modelAndView);
+        
+        // pdfUserReport is the View of our application
+        // This is declared inside the /WEB-INF/jasper-views.xml
+        modelAndView = new ModelAndView("pdfUserReport", parameterMap);
+        
+        // Return the View and the Model combined
+        return modelAndView;
+    }
 
 }

@@ -25,6 +25,9 @@ xsi:schemaLocation="
 		subReportUrls: a map reference to the path where the sub-report JRXML file is located
 		subReportDataKeys: a list of names of the datasources to be used by the sub-report. This is passed by the controller.
 	-->
+	
+	<!-- ===============FOR ORG LIST REPORTS================= -->
+	
 	<bean id="pdfReport"
 	   class="org.springframework.web.servlet.view.jasperreports.JasperReportsPdfView"
 		p:url="classpath:tree-template.jrxml"
