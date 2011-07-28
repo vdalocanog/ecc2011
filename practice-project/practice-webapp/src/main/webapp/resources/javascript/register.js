@@ -50,4 +50,19 @@ $(function() {
 			// else the key should be handled normally 
 	}); 
 	
+	$('#emailAddress').keyup(function() {
+		$('#emailMsg').html(loadingIcon);
+
+		var email = $('#emailAddress').val();
+		
+		var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+		if( !emailReg.test( email ) ) { 
+			$('#emailMsg').html(wrongIcon +" <span id='emailMsg'>invalid email</span>");
+		} else {
+			$('#emailMsg').html(checkIcon +" <span id='emailMsg'></span>");
+		}
+		
+	});
+
+	
 }); 

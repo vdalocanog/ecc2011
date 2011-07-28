@@ -71,11 +71,12 @@
 			    <form:input type="text" path="mi" size="5" maxlength="1" placeholder="required" value="${ user.mi }" REQUIRED="REQUIRED"/> <br />
 			    
 			    <label for="emailAddress">Email Address</label>
-			    <form:input type="email" path="emailAddress"  placeholder="required" value="${ user.emailAddress }" REQUIRED="REQUIRED"/> <br />
+			    <form:input type="email" id="emailAddress" path="emailAddress"  placeholder="required" value="${ user.emailAddress }" REQUIRED="REQUIRED"/> 
+				<span id="emailMsg"></span> <br />
 			    
 			    <label for="gender">Gender</label>
 			    <form:input type="radio" path='gender' value='Male' />Male 
-			    <form:input type="radio" path='gender' value='Female' />Female 
+			    <form:input type="radio" path='gender' value='Female' />Female <br />
 			    
 			    <label for="birthDate">Birth Date</label>
 			    <input type="text" id="birthDate" name="birthDate" readonly  value="${ user.birthDate }"/> <br />
@@ -91,11 +92,7 @@
 			  	<input type="reset" value="Reset" />
 			  	<a href='login.htm'><input type="button" value="<<Back" /></a>
 			</form:form>
-			Mogana ko sa Chrome: <br />
-			<audio controls="controls">
-			  <source src="resources/audio/JasonMraz-TryTryTry.mp3" type="audio/mp3" />
-			  Your browser does not support the audio element.
-			</audio>
+
 		</section>
 	</div>
 </body>

@@ -68,6 +68,7 @@ public class SaveUserMVC {
 				    		userService.addUser(user);	
 				    		HttpSession session = req.getSession();
 				    		session.setAttribute("uname", user.getUserName());
+				    		model.put("error", "Registration Successful!");
 				    		return "redirect: home.htm";
 				    	} else error += "Passwords don't match.";
 			    	} else error += "Password too short.";

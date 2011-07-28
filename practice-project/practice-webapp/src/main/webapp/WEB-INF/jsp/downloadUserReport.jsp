@@ -13,12 +13,12 @@
 
 <p>Click the download links below:</p>
 
-<c:url value="/jasper/report/user/download/xls" var="downloadXls"/>
+<c:url value="/jasper/report/user/download/report.xls" var="downloadXls"/>
 <a href="${downloadXls}">Download Excel</a>
 
 <br/>
 
-<c:url value="/jasper/report/user/download/pdf" var="downloadPdf"/>
+<c:url value="/jasper/report/user/download/report.pdf" var="downloadPdf"/>
 <a href="${downloadPdf}">Download PDF</a>
 
 </body>

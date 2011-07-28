@@ -137,7 +137,7 @@ public class UserJasperController {
      * 
      * @return
      */
-    @RequestMapping(value = "/download/xls", method = RequestMethod.GET)
+    @RequestMapping(value = "/download/report.xls", method = RequestMethod.GET)
     public ModelAndView doSalesReportXLS(ModelAndView modelAndView)  {
 		logger.debug("Received request to download XLS report");
 		
@@ -156,7 +156,7 @@ public class UserJasperController {
      * 
      * @return
      */
-    @RequestMapping(value = "/download/pdf", method = RequestMethod.GET)
+    @RequestMapping(value = "/download/report.pdf", method = RequestMethod.GET)
     public ModelAndView doSalesReportPDF(ModelAndView modelAndView)  {
         logger.debug("Received request to download PDF report");
         

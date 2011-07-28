@@ -38,10 +38,10 @@
 					    		<li><a href="viewMembers.htm?orgId=${ org.orgId }">${ org.orgName }</a></li>
 					    	</c:forEach>
 					    </ul>
-					    <p>Ganahan pa ka mo-apil ug lain nga organisasiyon? Pislita <a href="#">ni</a>.</p>
+					    <p>Ganahan pa ka mo-apil ug lain nga organisasiyon? Pislita <a href="viewOrgs.htm">ni</a>.</p>
 					</c:when>
 					<c:otherwise>
-					    <p>Wala kay organisasyon nga gi-apilan! Click <a href="org.htm">here</a> para mu-apil.</p>
+					    <p>Wala kay organisasyon nga gi-apilan! Click <a href="viewOrgs.htm">here</a> para mu-apil.</p>
 					</c:otherwise>
 				</c:choose>
 				<p>Click <a href="jasper/report/user/download">here</a> to view printable version.</p>

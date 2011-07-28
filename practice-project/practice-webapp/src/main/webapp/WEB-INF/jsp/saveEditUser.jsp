@@ -88,11 +88,7 @@
 			  	<input type="reset" value="Reset" />
 			  	<a href='login.htm'><input type="button" value="<<Back" /></a>
 			</form:form>
-			Mogana ko sa Chrome: <br />
-			<audio controls="controls">
-			  <source src="resources/audio/JasonMraz-TryTryTry.mp3" type="audio/mp3" />
-			  Your browser does not support the audio element.
-			</audio>
+
 		</section>
 		
 		( <a href="editPassword.htm">Edit Password</a> )

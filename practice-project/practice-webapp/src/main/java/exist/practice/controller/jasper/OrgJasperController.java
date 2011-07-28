@@ -71,32 +71,43 @@ public class OrgJasperController {
         // Return the wrapped collection
         return ds;
     }
+    
+    /**
+     * 
+     * @param modelAndView
+     * @return collection of all data sources to be used by the report
+     */
+    private Map<String,Object> setUpDataSources(ModelAndView modelAndView) {
+        // Retrieve our data from a custom data provider
+        // Our data comes from a DAO layer
+        //JasperDAO dataprovider = new JasperDAO();
+        
+        // Assign the datasource to an instance of JRDataSource
+        // JRDataSource is the datasource that Jasper understands
+        // This is basically a wrapper to Java's collection classes
+        //JRDataSource datasource  = dataprovider.getDataSource();
+        JRDataSource datasource  = this.getDataSource();
+        
+        // In order to use Spring's built-in Jasper support, 
+        // We are required to pass our datasource as a map parameter
+        // parameterMap is the Model of our application
+        Map<String,Object> parameterMap = new HashMap<String,Object>();
+        parameterMap.put("datasource", datasource);
+        
+        return parameterMap;
+    }
  
     /**
      * Retrieves the download file in XLS format
      * 
      * @return
      */
-    @RequestMapping(value = "/download/xls", method = RequestMethod.GET)
+    @RequestMapping(value = "/download/report.xls", method = RequestMethod.GET)
     public ModelAndView doSalesReportXLS(ModelAndView modelAndView) 
-		 {
+    {
 		logger.debug("Received request to download Excel report");
 		
-		// Retrieve our data from a custom data provider
-		// Our data comes from a DAO layer
-		//JasperDAO dataprovider = new JasperDAO();
-		
-		// Assign the datasource to an instance of JRDataSource
-		// JRDataSource is the datasource that Jasper understands
-		// This is basically a wrapper to Java's collection classes
-		//JRDataSource datasource  = dataprovider.getDataSource();
-		JRDataSource datasource  = this.getDataSource();
-		
-		// In order to use Spring's built-in Jasper support, 
-		// We are required to pass our datasource as a map parameter
-		// parameterMap is the Model of our application
-		Map<String,Object> parameterMap = new HashMap<String,Object>();
-		parameterMap.put("datasource", datasource);
+		Map<String,Object> parameterMap = setUpDataSources(modelAndView);
 		
 		// xlsReport is the View of our application
 		// This is declared inside the /WEB-INF/jasper-views.xml
@@ -111,26 +122,12 @@ public class OrgJasperController {
      * 
      * @return
      */
-    @RequestMapping(value = "/download/pdf", method = RequestMethod.GET)
+    @RequestMapping(value = "/download/report.pdf", method = RequestMethod.GET)
     public ModelAndView doSalesReportPDF(ModelAndView modelAndView) 
-		 {
+	{
 		logger.debug("Received request to download PDF report");
 		
-		// Retrieve our data from a custom data provider
-		// Our data comes from a DAO layer
-		//JasperDAO dataprovider = new JasperDAO();
-		
-		// Assign the datasource to an instance of JRDataSource
-		// JRDataSource is the datasource that Jasper understands
-		// This is basically a wrapper to Java's collection classes
-		//JRDataSource datasource  = dataprovider.getDataSource();
-		JRDataSource datasource  = this.getDataSource();
-		
-		// In order to use Spring's built-in Jasper support, 
-		// We are required to pass our datasource as a map parameter
-		// parameterMap is the Model of our application
-		Map<String,Object> parameterMap = new HashMap<String,Object>();
-		parameterMap.put("datasource", datasource);
+		Map<String,Object> parameterMap = setUpDataSources(modelAndView);
 		
 		// pdfReport is the View of our application
 		// This is declared inside the /WEB-INF/jasper-views.xml
