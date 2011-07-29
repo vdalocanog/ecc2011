@@ -28,7 +28,7 @@
 					    <ul>
 					   		<c:forEach items="${orgList}" var="org" varStatus="i">
 					    		<li>
-					    			<a href="viewMembers.htm">${ org.orgName }</a> 
+					    			${ org.orgName }
 					    			(<a href="joinOrg.htm?orgId=${ org.orgId }">Join</a>) 
 					    			(<a href="viewMembers.htm?orgId=${ org.orgId }">ViewMembers</a>) 
 					    			<sec:authorize access="hasRole('ROLE_ADMIN')">

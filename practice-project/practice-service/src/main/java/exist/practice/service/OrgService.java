@@ -15,5 +15,7 @@ public interface OrgService {
 	public boolean deleteOrg(long id);
 
 	public List<Org> findOrg(String column, String value);
+	
+	public List<Org> findOrgs(String column, String value);
 
 }

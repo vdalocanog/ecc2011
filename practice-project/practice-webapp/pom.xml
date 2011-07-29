@@ -223,7 +223,20 @@
 			<type>jar</type>
 			<scope>compile</scope>
 		</dependency>
-
+		
+		<!-- Spring-JSON 
+		<dependency>
+		    <groupId>net.sf.spring-json</groupId>
+		    <artifactId>spring-json</artifactId>
+		</dependency>
+		-->
+		
+		<!-- Jackson JSON Mapper -->
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+		</dependency>
+		
 	</dependencies>
 
 	<build>

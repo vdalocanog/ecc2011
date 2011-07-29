@@ -1,8 +1,10 @@
 package exist.practice.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,6 +21,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -190,6 +194,51 @@ public class MainMultiController {
         System.out.println( "orgId >>>>>>>>>> " + memberList );
         
         return mav;
+    }
+    
+    @RequestMapping("/searchOrgs.htm")
+    public ModelAndView searchOrgs(HttpServletRequest req, HttpServletResponse res) throws Exception {
+        ModelAndView mav = new ModelAndView("searchOrgs");
+ 
+        List<Org> orgList = new ArrayList<Org>();
+        orgList = orgService.findAllOrg();
+        
+        mav.addObject( "orgList", orgList );
+        
+        return mav;
+    }
+    
+    /*
+    @RequestMapping(value = "/getOrgList.htm", method = RequestMethod.POST)
+    public @ResponseBody String getOrgList(HttpServletRequest req, HttpServletResponse res) throws Exception {
+ 
+        System.out.println("RECEIVED: " + req.getParameter( "searchee" ));
+        
+        List<Org> orgList = new ArrayList<Org>();
+        orgList = orgService.findOrgs("orgName", req.getParameter( "searchee" ) );
+        
+        return orgList.toString();
+    }
+    */
+    
+    @RequestMapping(value = "/getOrgList.htm", method = RequestMethod.GET)
+    public @ResponseBody Map<String, Object> getOrgList(@RequestParam String searchee) {
+        
+        Map<String, Object> map = new HashMap<String, Object>();
+        
+        System.out.println("RECEIVED: " + searchee );
+        
+        List<Org> orgList = new ArrayList<Org>();
+        orgList = orgService.findOrgs("orgName", searchee );
+        map.put("orgList", orgList);
+        
+        List<String> orgNameList = new ArrayList<String>();
+        for (Org org : orgList) {
+            orgNameList.add(org.getOrgName());
+        }
+        map.put("orgNameList", orgNameList);
+        
+        return map;
     }
 
 }

@@ -23,7 +23,7 @@
 			<ul>
 				<li><a href="viewProfile.htm">View Profile</a></li>
 				<li><a href="editUser.htm">Edit Profile</a></li>
-				<li><a href="viewOrgs.htm">View Organizations</a></li>
+				<li><a href="searchOrgs.htm">View Organizations</a></li>
 				<li><a href="deleteUser.htm">Delete Account</a></li>
 				
 				<sec:authorize access="hasRole('ROLE_ADMIN')">

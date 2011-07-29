@@ -9,4 +9,5 @@ public interface GenericDao<T> {
 	public boolean update(T object);
 	public boolean delete(long id, Class<T> clazz);
 	public List<T> findLike(String table, String column, String value);
+	public List<T> findContains(String table, String column, String value);
 }

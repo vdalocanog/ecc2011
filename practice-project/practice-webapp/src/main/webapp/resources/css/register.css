@@ -34,6 +34,7 @@ input[type="text"], input[type="password"], input[type="email"], input[type="num
 	-webkit-border-radius: 10px; 
 	-moz-border-radius: 10px; 
 	border-radius: 10px; 	
+	background-color: yellow;
 }
 
 #confirmed {

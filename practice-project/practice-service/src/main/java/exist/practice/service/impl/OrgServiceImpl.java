@@ -37,5 +37,11 @@ public class OrgServiceImpl extends GenericDaoImpl<Org> implements OrgService {
 		List<Org> res = this.findLike("Org", column, value);
 		return res;
 	}
+	
+	public List<Org> findOrgs(String column, String value) {
+        // TODO Auto-generated method stub
+        List<Org> res = this.findContains("Org", column, value);
+        return res;
+    }
 
 }

@@ -2,6 +2,9 @@ package exist.practice;
 
 import java.util.Set;
 import javax.persistence.*;
+
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 import exist.practice.User;
 
 @Entity
@@ -10,7 +13,9 @@ public class Org {
 	@Id
 	@GeneratedValue
 	private long orgId = -1;
+	
 	private String orgName;
+	
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(name = "OrgUser", joinColumns = @JoinColumn(name = "orgId"), inverseJoinColumns = @JoinColumn(name = "userId"))
 	private Set<User> members;
@@ -45,6 +50,7 @@ public class Org {
 		this.orgName = orgName;
 	}
 
+	@JsonIgnore
 	public Set<User> getMembers() {
 		return members;
 	}
