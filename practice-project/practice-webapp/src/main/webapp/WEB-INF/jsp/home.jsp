@@ -28,6 +28,7 @@
 				
 				<sec:authorize access="hasRole('ROLE_ADMIN')">
 					<li><a href="saveOrg.htm">Create Org</a></li>
+					<li><a href="searchUsers.htm">View Users</a></li>
 				</sec:authorize>
 				
 				<hr />

@@ -200,10 +200,19 @@ public class MainMultiController {
     public ModelAndView searchOrgs(HttpServletRequest req, HttpServletResponse res) throws Exception {
         ModelAndView mav = new ModelAndView("searchOrgs");
  
+        /*
         List<Org> orgList = new ArrayList<Org>();
         orgList = orgService.findAllOrg();
         
         mav.addObject( "orgList", orgList );
+        */
+        
+        return mav;
+    }
+    
+    @RequestMapping("/searchUsers.htm")
+    public ModelAndView searchUsers(HttpServletRequest req, HttpServletResponse res) throws Exception {
+        ModelAndView mav = new ModelAndView("searchUsers");
         
         return mav;
     }
@@ -237,6 +246,26 @@ public class MainMultiController {
             orgNameList.add(org.getOrgName());
         }
         map.put("orgNameList", orgNameList);
+        
+        return map;
+    }
+    
+    @RequestMapping(value = "/getUserList.htm", method = RequestMethod.GET)
+    public @ResponseBody Map<String, Object> getUserList(@RequestParam String searchee) {
+        
+        Map<String, Object> map = new HashMap<String, Object>();
+        
+        System.out.println("RECEIVED: " + searchee );
+        
+        List<User> userList = new ArrayList<User>();
+        userList = userService.findUsers("userName", searchee );
+        map.put("userList", userList);
+        
+        List<String> userNameList = new ArrayList<String>();
+        for (User user : userList) {
+            userNameList.add(user.getUserName());
+        }
+        map.put("userNameList", userNameList);
         
         return map;
     }

@@ -14,5 +14,7 @@ public interface UserService {
 	public boolean deleteUser(long id, Class<User> clazz);
 
 	public List<User> findUser(String column, String value);
+	
+	public List<User> findUsers(String column, String value);
 
 }

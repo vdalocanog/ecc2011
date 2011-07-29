@@ -4,6 +4,7 @@ import java.util.*;
 
 import javax.persistence.*;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.joda.time.*;
 
 @Entity
@@ -220,6 +221,7 @@ public class User {
 		this.roleList = roleList;
 	}
 
+	@JsonIgnore
 	public Set<Role> getRoleList() {
 		return roleList;
 	}
