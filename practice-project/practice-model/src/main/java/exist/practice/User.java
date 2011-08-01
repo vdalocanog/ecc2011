@@ -5,6 +5,7 @@ import java.util.*;
 import javax.persistence.*;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
+import org.hibernate.annotations.Type;
 import org.joda.time.*;
 
 @Entity
@@ -22,11 +23,11 @@ public class User {
 	private String emailAddress;
 	private String gender;
 
-	//@Column(nullable = false)
-	@Column(nullable = true)
+	//@Column(nullable = true)
 	//@Temporal(TemporalType.DATE)
+	@Type(type="org.joda.time.contrib.hibernate.PersistentDateTime")
 	private DateTime birthDate;
-
+	
 	private String homeAddress;
 	private String contactNumber;
 	private boolean isEnabled = true;

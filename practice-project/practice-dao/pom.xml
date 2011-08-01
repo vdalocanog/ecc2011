@@ -16,10 +16,12 @@
 	<url>http://maven.apache.org</url>
 
 	<dependencies>
+	
 		<dependency>
 				<groupId>org.springframework</groupId>
 				<artifactId>spring-context</artifactId>
 		</dependency>
+		
 		<!-- Model -->
 		<dependency>
 			<groupId>exist.practice</groupId>
@@ -102,6 +104,17 @@
 		    	<type>jar</type>
 		    	<scope>compile</scope>
 		    </dependency>
+		
+			<!-- Joda Time -->
+			<dependency>
+				<groupId>joda-time</groupId>
+				<artifactId>joda-time</artifactId>
+			</dependency>
+			
+			<dependency>
+			    <groupId>joda-time</groupId>
+			    <artifactId>joda-time-hibernate</artifactId>
+			</dependency>
 		
 	</dependencies>
 </project>

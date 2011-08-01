@@ -65,10 +65,13 @@ public class SaveUserMVC {
 							}
 							roleList.add(role);
 							user.setRoleList(roleList);
-				    		userService.addUser(user);	
+				    		userService.addUser(user);
 				    		HttpSession session = req.getSession();
 				    		session.setAttribute("uname", user.getUserName());
 				    		model.put("error", "Registration Successful!");
+				    		System.out.println("FORM.BIRTHDATE: " + req.getParameter("birthDate") );
+				    		user.setBirthDate( req.getParameter("birthDate") );
+				    		System.out.println("BEAN.BIRTHDATE: " + user.getBirthDate() );
 				    		return "redirect: home.htm";
 				    	} else error += "Passwords don't match.";
 			    	} else error += "Password too short.";

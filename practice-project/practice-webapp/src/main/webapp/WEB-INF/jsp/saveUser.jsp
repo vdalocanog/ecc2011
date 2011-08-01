@@ -79,7 +79,7 @@
 			    <form:input type="radio" path='gender' value='Female' />Female <br />
 			    
 			    <label for="birthDate">Birth Date</label>
-			    <input type="text" id="birthDate" name="birthDate" readonly  value="${ user.birthDate }"/> <br />
+			    <form:input type="text" path="birthDate" id="birthDate" readonly="true"  value="${ user.birthDate }"/> <br />
 			      
 			    <label for="homeAddress">Home Address</label>
 			    <form:input type="text" path="homeAddress" value="${ user.homeAddress }" /> <br />
