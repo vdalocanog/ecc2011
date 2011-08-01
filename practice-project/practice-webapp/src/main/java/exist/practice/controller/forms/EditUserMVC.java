@@ -7,10 +7,13 @@ import java.util.Set;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -45,6 +48,12 @@ public class EditUserMVC {
 		if(userService.findUser("userName", uname).size() == 0) return true;
 		return false;
 	}
+	
+	@InitBinder
+    public void initBinder(WebDataBinder binder) {
+        binder.setDisallowedFields(new String[]{"birthDate"});
+        //binder.setAllowedFields(new String[]{"id", "name", "number", "email", ... });
+    }
 	
 	@RequestMapping(value = "/editUser.htm", method = RequestMethod.GET)
 	public String showForm(ModelMap model) {
@@ -96,15 +105,21 @@ public class EditUserMVC {
          u.setEmailAddress( user.getEmailAddress() );
         System.out.println("getGender---> " + user.getGender());
          u.setGender( user.getGender() );
-        /*
+       
         if( (req.getParameter("birthDate")!=null) && !req.getParameter("birthDate").trim().equals("") ) {
-            user.setBirthDate( req.getParameter("birthDate") );
+            user.setBirthDate( new DateTime( req.getParameter("birthDate") ) );
         } else {
             user.setBirthDate( null );
         }
         System.out.println("getBirthDate---> " + user.getBirthDate());
-         u.setBirthDate( user.getBirthDate().toString() );
-         */
+         u.setBirthDate( user.getBirthDate() );
+         
+         System.out.println("\n\n*****FORM.BIRTHDATE: " + req.getParameter("birthDate") );
+         
+         user.setBirthDate( new DateTime( req.getParameter("birthDate") ) );
+         System.out.println("*****BEAN.BIRTHDATE: " + u.getBirthDate() );
+         
+       
         System.out.println("getHomeAddress---> " + user.getHomeAddress());
          u.setHomeAddress( user.getHomeAddress() );
         System.out.println("getContactNumber---> " + user.getContactNumber());

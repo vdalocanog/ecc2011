@@ -35,8 +35,8 @@ public class GenericDaoImplTest {
 		user.setLastName("lastName");
 		user.setMi("A");
 		String date = "1990-05-19";
-		/*user.setBirthDate(new DateTime(date));*/
-		user.setBirthDate(date);
+		user.setBirthDate(new DateTime(date));
+		//user.setBirthDate(date);
 		user.setEmailAddress("emailAddress");
 		user.setContactNumber("contactNumber");
 		assertTrue("User 1 added", genericDao.add(user));
@@ -57,8 +57,8 @@ public class GenericDaoImplTest {
 		user.setLastName("lastName");
 		user.setMi("A");
 		String date = "1990-05-19";
-		/*user.setBirthDate(new DateTime(date));*/
-		user.setBirthDate(date);
+		user.setBirthDate(new DateTime(date));
+		//user.setBirthDate(date);
 		user.setEmailAddress("emailAddress");
 		user.setContactNumber("contactNumber");
 		assertTrue("Added User2",genericDao.add(user));
@@ -109,8 +109,8 @@ public class GenericDaoImplTest {
 		user.setLastName("lastName");
 		user.setMi("A");
 		String date = "1990-05-19";
-		/*user.setBirthDate(new DateTime(date));*/
-		user.setBirthDate(date);
+		user.setBirthDate(new DateTime(date));
+		//user.setBirthDate(date);
 		user.setEmailAddress("emailAddress");
 		user.setContactNumber("contactNumber");
 		genericDao.add(user);
@@ -126,8 +126,8 @@ public class GenericDaoImplTest {
 		user.setLastName("lastName");
 		user.setMi("A");
 		String date = "1990-05-19";
-		/*user.setBirthDate(new DateTime(date));*/
-		user.setBirthDate(date);
+		user.setBirthDate(new DateTime(date));
+		//user.setBirthDate(date);
 		user.setEmailAddress("emailAddress");
 		user.setContactNumber("contactNumber");
 	    genericDao.add(user);

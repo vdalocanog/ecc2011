@@ -1,6 +1,6 @@
 package exist.practice;
 
-import java.util.*;
+import java.util.Set;
 
 import javax.persistence.*;
 
@@ -168,8 +168,9 @@ public class User {
 	 * @param birthDate
 	 *            the birthDate to set
 	 */
-	public void setBirthDate(String birthDate) {
-		this.birthDate = new DateTime(birthDate);
+	public void setBirthDate(DateTime birthDate) {
+		//this.birthDate = new DateTime(birthDate);
+	    this.birthDate = birthDate;
 	}
 
 	/**

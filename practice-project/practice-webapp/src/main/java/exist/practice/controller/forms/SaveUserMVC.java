@@ -6,9 +6,12 @@ import java.util.Set;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -38,6 +41,12 @@ public class SaveUserMVC {
 		this.userService = userService;
 	}
 	
+	@InitBinder
+    public void initBinder(WebDataBinder binder) {
+        binder.setDisallowedFields(new String[]{"birthDate"});
+        //binder.setAllowedFields(new String[]{"id", "name", "number", "email", ... });
+    }
+	
 	@RequestMapping(method = RequestMethod.GET)
 	public String showForm(ModelMap model, HttpServletRequest req) {
 		System.out.println("Invoked: showForm");
@@ -65,13 +74,16 @@ public class SaveUserMVC {
 							}
 							roleList.add(role);
 							user.setRoleList(roleList);
+							user.setBirthDate( new DateTime( req.getParameter("birthDate") ) );
 				    		userService.addUser(user);
 				    		HttpSession session = req.getSession();
 				    		session.setAttribute("uname", user.getUserName());
 				    		model.put("error", "Registration Successful!");
+				    		
 				    		System.out.println("FORM.BIRTHDATE: " + req.getParameter("birthDate") );
-				    		user.setBirthDate( req.getParameter("birthDate") );
+				    		
 				    		System.out.println("BEAN.BIRTHDATE: " + user.getBirthDate() );
+				    		
 				    		return "redirect: home.htm";
 				    	} else error += "Passwords don't match.";
 			    	} else error += "Password too short.";
