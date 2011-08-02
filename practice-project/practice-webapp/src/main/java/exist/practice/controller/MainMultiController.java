@@ -110,9 +110,11 @@ public class MainMultiController {
         
         User user = new User();
 
-        System.out.println( "USERNAME >>>>>>>>>>>>>>>>> " + SecurityContextHolder.getContext().getAuthentication().getName() );
+        //System.out.println( "USERNAME >>>>>>>>>>>>>>>>> " + SecurityContextHolder.getContext().getAuthentication().getName() );
         
-        List<User> userList = userService.findUser("userName", SecurityContextHolder.getContext().getAuthentication().getName() );
+        //List<User> userList = userService.findUser("userName", SecurityContextHolder.getContext().getAuthentication().getName() );
+        
+        List<User> userList = userService.findUser("userId", req.getParameter("userId") );
         
         if ( userList.size() > 0 ) {
             user = userList.get(0);
@@ -120,6 +122,23 @@ public class MainMultiController {
         }
         
         return mav;
+    }
+	
+	@RequestMapping("/toggleEnable.htm")
+    public String disableUser(HttpServletRequest req) {
+        String view = "searchUsers";
+        
+        User user = new User();
+
+        List<User> userList = userService.findUser("userId", req.getParameter("userId") );
+        
+        if ( userList.size() > 0 ) {
+            user = userList.get(0);
+            user.setEnabled(!user.getEnabled());
+            userService.updateUser(user);
+        }
+        
+        return view;
     }
     
     @RequestMapping("/viewOrgs.htm")
@@ -255,6 +274,7 @@ public class MainMultiController {
         
         Map<String, Object> map = new HashMap<String, Object>();
         
+        searchee = searchee.trim();
         System.out.println("RECEIVED: " + searchee );
         
         List<User> userList = new ArrayList<User>();

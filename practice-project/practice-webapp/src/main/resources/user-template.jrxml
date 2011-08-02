@@ -3,7 +3,7 @@
 	<property name="template.type" value="columnar"/>
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="39"/>
 	<style name="Title" forecolor="#000000" fontName="DejaVu Sans" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#666666" fontName="DejaVu Sans" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
 	<style name="Column header" forecolor="#666666" fontName="DejaVu Sans" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
@@ -24,7 +24,7 @@
 	<field name="mi" class="java.lang.String"/>
 	<field name="emailAddress" class="java.lang.String"/>
 	<field name="gender" class="java.lang.String"/>
-	<field name="birthDate" class="java.util.Date"/>
+	<field name="birthDate" class="java.lang.String"/>
 	<field name="homeAddress" class="java.lang.String"/>
 	<field name="contactNumber" class="java.lang.String"/>
 	<group name="Group1">
@@ -182,7 +182,7 @@
 			<textField>
 				<reportElement x="442" y="40" width="110" height="20"/>
 				<textElement/>
-				<textFieldExpression class="java.util.Date"><![CDATA[$F{birthDate}]]></textFieldExpression>
+				<textFieldExpression class="java.lang.String"><![CDATA[$F{birthDate}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="332" y="60" width="110" height="20"/>

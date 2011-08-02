@@ -30,7 +30,7 @@ public class User {
 	
 	private String homeAddress;
 	private String contactNumber;
-	private boolean isEnabled = true;
+	private boolean enabled = true;
 	@ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinTable(name = "OrgUser", joinColumns = @JoinColumn(name = "userId"), inverseJoinColumns = @JoinColumn(name = "orgId"))
 	private Set<Org> orgs;
@@ -211,12 +211,12 @@ public class User {
 		return orgs;
 	}
 
-	public void setEnabled(boolean isEnabled) {
-		this.isEnabled = isEnabled;
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
 	}
 
-	public boolean isEnabled() {
-		return isEnabled;
+	public boolean getEnabled() {
+		return enabled;
 	}
 
 	public void setRoleList(Set<Role> roleList) {

@@ -124,8 +124,8 @@ public class EditUserMVC {
          u.setHomeAddress( user.getHomeAddress() );
         System.out.println("getContactNumber---> " + user.getContactNumber());
          u.setContactNumber( user.getContactNumber() );
-        System.out.println("isEnabled---> " + user.isEnabled());
-         u.setEnabled( user.isEnabled()  );
+        System.out.println("isEnabled---> " + user.getEnabled());
+         u.setEnabled( user.getEnabled()  );
         
         boolean valid = true;
         

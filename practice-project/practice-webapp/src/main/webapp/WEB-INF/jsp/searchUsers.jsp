@@ -38,11 +38,13 @@
 				$.each(result.userList, function(index, value) { 
 					  $("#resultList").append('<li>'+ 
 							  value.userName +
-							  '(<a href="joinUser.htm?userId='+value.userId+'">Join</a>)' +
-							  '(<a href="viewMembers.htm?userId='+value.userId+'">Members</a>)' +
+							  ' (enabled:'+value.enabled+
 							  '<sec:authorize access="hasRole('ROLE_ADMIN')">' +
-							  '(<a href="deleteUser.htm?userId='+value.userId+'">Delete</a>)' +
+							  ' <a href="toggleEnable.htm?userId='+value.userId+'">Toggle</a>' +
 							  '</sec:authorize>' +
+								')' +
+							  ' (<a href="viewProfile.htm?userId='+value.userId+'">View Profile</a>)' +
+							  
 							  '</li>');
 					});
 				
