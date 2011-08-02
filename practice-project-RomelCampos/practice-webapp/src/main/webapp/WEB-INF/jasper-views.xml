@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:p="http://www.springframework.org/schema/p"
+xmlns:util="http://www.springframework.org/schema/util"
+xsi:schemaLocation="
+	http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/util
+	http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+
+	<!-- 
+		Declare Spring's View Resolvers for Jasper
+		
+		Based on the bean names we can infer that:
+			* pdfReport is for generating PDFs
+			* xlsReport is for Excel format reports
+			* htmlReport is for HTML reports
+			* csvReport is for CSV reports
+	-->
+	<!--
+		id: the name to be used as a reference in the controller
+		url: the path where the master JRXML file is located
+		reportDateKey: the name of the datasource to be used by the master report. This is passed by the controller
+		subReportUrls: a map reference to the path where the sub-report JRXML file is located
+		subReportDataKeys: a list of names of the datasources to be used by the sub-report. This is passed by the controller.
+	-->
+	<bean id="pdfReport"
+	   class="org.springframework.web.servlet.view.jasperreports.JasperReportsPdfView"
+		p:url="classpath:tree-template.jrxml"
+		p:reportDataKey="datasource" />
+
+	<bean id="xlsReport"
+	   class="org.springframework.web.servlet.view.jasperreports.JasperReportsXlsView"
+		p:url="classpath:tree-template.jrxml"
+		p:reportDataKey="datasource" />
+	
+	<bean id="htmlReport"
+	   class="org.springframework.web.servlet.view.jasperreports.JasperReportsHtmlView"
+		p:url="classpath:tree-template.jrxml" 
+		p:reportDataKey="datasource" />
+	
+	<bean id="csvReport"
+	   class="org.springframework.web.servlet.view.jasperreports.JasperReportsCsvView"
+		p:url="classpath:tree-template.jrxml"
+		p:reportDataKey="datasource" />
+		
+	<!-- ===============FOR USER REPORTS================= -->
+	
+	<bean id="pdfUserReport"
+	   class="org.springframework.web.servlet.view.jasperreports.JasperReportsPdfView"
+		p:url="classpath:user-template.jrxml"
+		p:reportDataKey="datasource"
+		p:subReportUrls-ref="customSubReportUrls"
+		p:subReportDataKeys-ref="customSubReportDatasource"/>
+
+	<bean id="xlsUserReport"
+	   class="org.springframework.web.servlet.view.jasperreports.JasperReportsXlsView"
+		p:url="classpath:user-template.jrxml"
+		p:reportDataKey="datasource"
+		p:subReportUrls-ref="customSubReportUrls"
+		p:subReportDataKeys-ref="customSubReportDatasource"/>
+			
+	<bean id="htmlUserReport"
+	   class="org.springframework.web.servlet.view.jasperreports.JasperReportsHtmlView"
+		p:url="classpath:user-template.jrxml" 
+		p:reportDataKey="datasource"
+		p:subReportUrls-ref="customSubReportUrls"
+		p:subReportDataKeys-ref="customSubReportDatasource"/>
+			
+	<bean id="csvUserReport"
+	   class="org.springframework.web.servlet.view.jasperreports.JasperReportsCsvView"
+		p:url="classpath:user-template.jrxml"
+		p:reportDataKey="datasource"
+		p:subReportUrls-ref="customSubReportUrls"
+		p:subReportDataKeys-ref="customSubReportDatasource"/>
+				
+	<util:map id="customSubReportUrls">
+	<!-- This entry key must be declared exactly as you declared it in the master JRXML file -->
+	<entry key="JasperCustomSubReportLocation" value="classpath:user-template_subreport-orgs.jrxml"/>
+	</util:map>
+	 
+	<util:list id="customSubReportDatasource">
+	<!-- This value must be declared exactly as you declared it in the master JRXML file -->
+	<value>JasperCustomSubReportDatasource</value>
+	</util:list>
+		
+</beans>
