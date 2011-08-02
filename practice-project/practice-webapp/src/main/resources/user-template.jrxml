@@ -24,7 +24,7 @@
 	<field name="mi" class="java.lang.String"/>
 	<field name="emailAddress" class="java.lang.String"/>
 	<field name="gender" class="java.lang.String"/>
-	<field name="birthDate" class="java.lang.String"/>
+	<field name="birthDate" class="org.joda.time.DateTime"/>
 	<field name="homeAddress" class="java.lang.String"/>
 	<field name="contactNumber" class="java.lang.String"/>
 	<group name="Group1">
@@ -182,7 +182,7 @@
 			<textField>
 				<reportElement x="442" y="40" width="110" height="20"/>
 				<textElement/>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{birthDate}]]></textFieldExpression>
+				<textFieldExpression class="java.util.Date"><![CDATA[$F{birthDate}.toDate()]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="332" y="60" width="110" height="20"/>
