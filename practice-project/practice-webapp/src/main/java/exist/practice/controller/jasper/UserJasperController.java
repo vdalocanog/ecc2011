@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import javax.servlet.http.HttpServletRequest;
+
 import net.sf.jasperreports.engine.JRDataSource;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
@@ -61,12 +63,19 @@ public class UserJasperController {
      * Used to populate data -- main report
      * @return
      */
-    public  JRDataSource getDataSource() {
+    public  JRDataSource getDataSource(HttpServletRequest req) {
         // Create an array list of User 
         List<User> items = new ArrayList<User>();
 
         // You can populate data from a custom JDBC or DAO layer
-        items = userService.findUser("userName", SecurityContextHolder.getContext().getAuthentication().getName() );
+        //items = userService.findUser("userName", SecurityContextHolder.getContext().getAuthentication().getName() );
+        String userId = req.getParameter("userId");
+        if ( (userId!=null) && (!userId.trim().equals("")) ) {
+            items = userService.findUser("userId", userId);
+        } else {
+            items = userService.findAllUser();
+        }
+        
         
         // Wrap the collection in a JRBeanCollectionDataSource
         // This is one of the collections that Jasper understands
@@ -80,7 +89,7 @@ public class UserJasperController {
      * Used to populate data -- sub report
      * @return
      */
-    public  JRDataSource getSubDataSource() {
+    public  JRDataSource getSubDataSource(HttpServletRequest req) {
         // Create an array list of User 
         Set<Org> items = new LinkedHashSet<Org>();
 
@@ -100,7 +109,7 @@ public class UserJasperController {
      * @param modelAndView
      * @return collection of all data sources to be used by the report
      */
-    private Map<String,Object> setUpDataSources(ModelAndView modelAndView) {
+    private Map<String,Object> setUpDataSources(HttpServletRequest req, ModelAndView modelAndView) {
      // Retrieve our data from a custom data provider
         // Our data comes from a DAO layer
         //JasperDAO dataprovider = new JasperDAO();
@@ -108,8 +117,8 @@ public class UserJasperController {
         // Assign the datasource to an instance of JRDataSource
         // JRDataSource is the datasource that Jasper understands
         // This is basically a wrapper to Java's collection classes
-        JRDataSource datasource  = this.getDataSource();
-        JRDataSource subDatasource  = this.getSubDataSource();
+        JRDataSource datasource  = this.getDataSource(req);
+        JRDataSource subDatasource  = this.getSubDataSource(req);
         
         // In order to use Spring's built-in Jasper support, 
         // We are required to pass our datasource as a map parameter
@@ -138,10 +147,10 @@ public class UserJasperController {
      * @return
      */
     @RequestMapping(value = "/download/report.xls", method = RequestMethod.GET)
-    public ModelAndView doSalesReportXLS(ModelAndView modelAndView)  {
+    public ModelAndView doSalesReportXLS(HttpServletRequest req, ModelAndView modelAndView)  {
 		logger.debug("Received request to download XLS report");
 		
-		Map<String,Object> parameterMap = setUpDataSources(modelAndView);
+		Map<String,Object> parameterMap = setUpDataSources(req, modelAndView);
 		
 		// xlsUserReport is the View of our application
 		// This is declared inside the /WEB-INF/jasper-views.xml
@@ -157,10 +166,10 @@ public class UserJasperController {
      * @return
      */
     @RequestMapping(value = "/download/report.pdf", method = RequestMethod.GET)
-    public ModelAndView doSalesReportPDF(ModelAndView modelAndView)  {
+    public ModelAndView doSalesReportPDF(HttpServletRequest req, ModelAndView modelAndView)  {
         logger.debug("Received request to download PDF report");
         
-        Map<String,Object> parameterMap = setUpDataSources(modelAndView);
+        Map<String,Object> parameterMap = setUpDataSources(req, modelAndView);
         
         // pdfUserReport is the View of our application
         // This is declared inside the /WEB-INF/jasper-views.xml

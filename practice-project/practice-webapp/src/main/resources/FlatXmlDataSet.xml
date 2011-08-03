@@ -1,10 +1,74 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <dataset>
-	<User userId="1" userName="admin" password="admin" firstName=" " lastName=" "
-		mi=" " gender=" " homeAddress=" " birthDate="1990-05-19" contactNumber=" "
-		emailAddress="" isEnabled="true" />
-	<Role roleId="1" role="ROLE_ADMIN" />
-	<Role roleId="2" role="ROLE_USER" />
-	<UserRole roleId="1" userId="1"/>
-	<UserRole roleId="2" userId="1"/>
+	
+	<User
+	 userId="1" 
+	 userName="admin" 
+	 password="admin" 
+	 firstName="Juan" 
+	 lastName="dela Cruz" 
+	 mi="P" 
+	 gender="Male" 
+	 homeAddress="Lahug, Cebu City" 
+	 birthDate="1990-05-19" 
+	 contactNumber="0987654321" 
+	 emailAddress="jdc@domain99.net" 
+	 enabled="true" 
+	/>
+	
+	<User
+	 userId="2" 
+	 userName="user" 
+	 password="user" 
+	 firstName="Jane" 
+	 lastName="Doe" 
+	 mi="A" 
+	 gender="Female" 
+	 homeAddress="New York City, New York" 
+	 birthDate="1993-05-03" 
+	 contactNumber="2345678" 
+	 emailAddress="jd@domain100.org" 
+	 enabled="false" 
+	/>
+		
+	<Role
+	 roleId="1" 
+	 role="ROLE_ADMIN" 
+	/>
+	
+	<Role
+	 roleId="2" 
+	 role="ROLE_USER" 
+	/>
+	
+	<UserRole
+	 userId="1"
+	 roleId="1" 
+	/>
+	
+	<UserRole
+	 userId="1"
+	 roleId="2" 
+	/>
+	
+	<UserRole
+	 userId="2"
+	 roleId="2" 
+	/>
+	
+	<Org
+	 orgId="1" 
+	 orgName="Math Factors" 
+	/>
+	
+	<Org
+	 orgId="2" 
+	 orgName="Biology Formalinists" 
+	/>
+	
+	<Org
+	 orgId="3" 
+	 orgName="Geology Fossilizers" 
+	/>
+	 
 </dataset>

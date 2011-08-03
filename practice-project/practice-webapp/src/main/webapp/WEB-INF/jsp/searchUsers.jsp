@@ -74,7 +74,7 @@
 		</nav>
 		<section>
 			<div id="userReport">
-				<a href="jasper/report/user/download">Download List of All Users</a>
+				<a href="jasper/report/user/download/report.pdf">Download List of All Users</a>
 			</div>
 			Search User Name: <input id="searchee"  onkeyup="suggest()" /> 
 			<ul id="resultList"></ul>

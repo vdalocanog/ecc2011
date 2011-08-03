@@ -63,8 +63,8 @@ public class LoginLogOutController {
 		return connection;
 	}
 
-	private void loadData() throws DatabaseUnitException, SQLException,
-			Exception {
+	private void loadData() 
+	    throws DatabaseUnitException, SQLException, Exception {
 		DatabaseOperation.CLEAN_INSERT.execute(getConnection(), getDataSet());
 	}
 

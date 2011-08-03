@@ -37,7 +37,6 @@ public class MainMultiController {
 
 	protected static Logger logger = Logger.getLogger("controller");
 
-	@Autowired
 	private UserService userService;
 	
 	private OrgService orgService;
@@ -172,6 +171,42 @@ public class MainMultiController {
             mav.addObject( "message", "join org successful" );
         } catch (Exception e) {
             mav.addObject( "message", "you already joined this org" );
+        }
+       
+        return mav;
+        
+    }
+    
+    @RequestMapping("/leaveOrg.htm")
+    public ModelAndView leaveOrg(HttpServletRequest req, HttpServletResponse res) throws Exception {
+        ModelAndView mav = new ModelAndView("viewOrgs");
+        
+        mav.addObject( "message", "leave org FAIL" );
+
+        String orgId = req.getParameter("orgId");
+        Org org = orgService.findOrg("orgId", orgId ).get(0);
+        Set<User> userSet = org.getMembers();
+        
+        User usr = userService.findUser("userName", SecurityContextHolder.getContext().getAuthentication().getName() ).get(0);
+        
+        for (User u : userSet) {
+            if ( u.getUserName().equals(SecurityContextHolder.getContext().getAuthentication().getName()) ) {
+                System.out.println("FOUNT IT!");
+                usr = u;
+            }
+        }
+        
+        try {
+            if ( userSet.contains(usr) ) {
+                userSet.remove(usr);
+                org.setMembers(userSet);
+                orgService.updateOrg(org);
+                mav.addObject( "message", "leave org successful" );
+            } else {
+                mav.addObject( "message", "you are not a member of this org" );
+            }
+        } catch (Exception e) {
+            mav.addObject( "message", "you already left this org" );
         }
        
         return mav;

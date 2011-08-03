@@ -35,7 +35,11 @@
 					    <h4>Organizations: </h4>
 					    <ul>
 					   		<c:forEach items="${user.orgs}" var="org" varStatus="i">
-					    		<li><a href="viewMembers.htm?orgId=${ org.orgId }">${ org.orgName }</a></li>
+					    		<li>
+					    			${ org.orgName }
+					    			(<a href="viewMembers.htm?orgId=${ org.orgId }">View Members</a>)
+					    			(<a href="leaveOrg.htm?orgId=${ org.orgId }">Leave</a>)
+					    		</li>
 					    	</c:forEach>
 					    </ul>
 					    <p>Ganahan pa ka mo-apil ug lain nga organisasiyon? Pislita <a href="viewOrgs.htm">ni</a>.</p>
@@ -44,7 +48,7 @@
 					    <p>Wala kay organisasyon nga gi-apilan! Click <a href="viewOrgs.htm">here</a> para mu-apil.</p>
 					</c:otherwise>
 				</c:choose>
-				<p>Click <a href="jasper/report/user/download">here</a> to view printable version.</p>
+				<p>Click <a href="jasper/report/user/download/report.pdf?userId=${ user.userId }">here</a> to download PDF.</p>
 			</div>
 		</section>
 		<aside>
