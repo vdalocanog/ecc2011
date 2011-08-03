@@ -1,0 +1,107 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>exist.practice</groupId>
+		<artifactId>practice-project</artifactId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+
+	<groupId>exist.practice</groupId>
+	<artifactId>practice-dao</artifactId>
+	<packaging>jar</packaging>
+
+	<name>practice-dao</name>
+	<url>http://maven.apache.org</url>
+
+	<dependencies>
+		<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context</artifactId>
+		</dependency>
+		<!-- Model -->
+		<dependency>
+			<groupId>exist.practice</groupId>
+			<artifactId>practice-model</artifactId>
+		</dependency>
+
+		<!-- Test Dependency -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- Mockito Test -->
+			
+		<dependency>
+	        <groupId>org.mockito</groupId>
+	        <artifactId>mockito-core</artifactId>
+	        <scope>test</scope>
+	    </dependency>
+	    
+	    <dependency>
+	        <groupId>org.mockito</groupId>
+	        <artifactId>mockito-all</artifactId>
+	        <scope>test</scope>
+	    </dependency>
+	    
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+			<scope>test</scope>
+		</dependency>
+		
+		<!-- Jasper Reports -->
+		<dependency>
+		    	<groupId>net.sf.jasperreports</groupId>
+		    	<artifactId>jasperreports</artifactId>
+		    	<type>jar</type>
+		    	<scope>compile</scope>
+		    	<exclusions>
+		    		<exclusion>
+		    			<artifactId>commons-collections</artifactId>
+		    			<groupId>commons-collections</groupId>
+		    		</exclusion>
+		    		<exclusion>
+		    			<artifactId>commons-beanutils</artifactId>
+		    			<groupId>commons-beanutils</groupId>
+		    		</exclusion>
+		    		<exclusion>
+		    			<artifactId>commons-digester</artifactId>
+		    			<groupId>commons-digester</groupId>
+		    		</exclusion>
+		    		<exclusion>
+		    			<artifactId>commons-logging</artifactId>
+		    			<groupId>commons-logging</groupId>
+		    		</exclusion>
+		    	</exclusions>
+		    </dependency>
+		    <dependency>
+		    	<groupId>commons-digester</groupId>
+		    	<artifactId>commons-digester</artifactId>
+		    	<type>jar</type>
+		    	<scope>compile</scope>
+		    </dependency>
+		    <dependency>
+		    	<groupId>commons-collections</groupId>
+		    	<artifactId>commons-collections</artifactId>
+		    	<type>jar</type>
+		    	<scope>compile</scope>
+		    </dependency>
+		    <dependency>
+		    	<groupId>org.apache.poi</groupId>
+		    	<artifactId>poi</artifactId>
+		    	<type>jar</type>
+		    	<scope>compile</scope>
+		    </dependency>
+		
+	</dependencies>
+</project>

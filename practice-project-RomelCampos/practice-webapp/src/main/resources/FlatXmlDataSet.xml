@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+	<User userId="1" userName="admin" password="admin" firstName="Mark" lastName="Diaz Ng"
+		mi="A" fullName="Mark A. Diaz Ng" gender="Others" homeAddress="Lasang" birthDate="1990-05-19" contactNumber="13"
+		emailAddress="exst_mdiazng@yahoo.com" isEnabled="true" />
+	<Role roleId="1" role="ROLE_ADMIN" />
+	<Role roleId="2" role="ROLE_USER" />
+	<UserRole roleId="1" userId="1"/>
+	<UserRole roleId="2" userId="1"/>
+</dataset>
