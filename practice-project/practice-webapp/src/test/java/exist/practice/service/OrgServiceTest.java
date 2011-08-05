@@ -30,8 +30,8 @@ import exist.practice.service.impl.OrgServiceImpl;
 public class OrgServiceTest {
     
   //to make mock objects
-    @Mock
-    private Org org;
+    //@Mock
+   // private Org org;
     
     @Before 
     public void setUp() {
@@ -42,7 +42,8 @@ public class OrgServiceTest {
  public void testExample() {
   // another way to make mock objects
   OrgService orgService = mock(OrgServiceImpl.class);
- 
+  Org org = mock(Org.class);
+  
   //public boolean addOrg(Org object);
   //define
   when(orgService.addOrg(any(Org.class))).thenReturn(true);
