@@ -42,6 +42,7 @@ public class GenericDaoImpl<T> implements GenericDao<T> {// extends
 	@Transactional(readOnly = false)
 	public boolean add(T object) {
 		// TODO Auto-generated method stub
+	    System.out.println("--received: " + object);
 		boolean result = false;
 		try {
 			hibernateTemplate.save(object);

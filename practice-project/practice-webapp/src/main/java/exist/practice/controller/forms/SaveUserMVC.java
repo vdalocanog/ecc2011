@@ -8,6 +8,8 @@ import javax.servlet.http.HttpSession;
 
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.WebDataBinder;
@@ -19,6 +21,7 @@ import exist.practice.Role;
 import exist.practice.User;
 import exist.practice.service.RoleService;
 import exist.practice.service.UserService;
+import exist.practice.utils.PostOffice;
 import exist.practice.validator.UsernameValidator;
 
 @Controller
@@ -78,6 +81,9 @@ public class SaveUserMVC {
 				    		userService.addUser(user);
 				    		HttpSession session = req.getSession();
 				    		session.setAttribute("uname", user.getUserName());
+				    		
+				    		sendEmailTo(user.getEmailAddress());
+				    		
 				    		model.put("error", "Registration Successful!");
 				    		
 				    		System.out.println("FORM.BIRTHDATE: " + req.getParameter("birthDate") );
@@ -93,5 +99,37 @@ public class SaveUserMVC {
     	model.put("message", error);
     	return "saveUser";
 	}	
+	
+	 /**
+     * 
+     * @param email
+     * @return
+     */
+    private String sendEmailTo(String email) {
+        System.out.println("Sending email to " + email);
+        
+        try {
+        
+            String sender = "from_user@domain.com";
+            String receiver = email;
+            String subject = "Prac Proj - " + java.util.Calendar.getInstance().getTime();
+            String content = "This a test on " + java.util.Calendar.getInstance().getTime();
+            
+            System.out.println("Email will now be sent.");
+            
+            ApplicationContext context = new ClassPathXmlApplicationContext("springMail.xml");
+            
+            PostOffice postOffice = (PostOffice) context.getBean("postOffice");
+            
+            postOffice.sendMail(sender, receiver, subject, content);
+            
+            return "Email link <br /> has been sent to: <br /> <b>" + email + "</b>";
+        
+        } catch(Exception e) {
+            e.printStackTrace();
+            return "Failed sending email link to: " + email;
+        }
+        
+    }
 	
 }

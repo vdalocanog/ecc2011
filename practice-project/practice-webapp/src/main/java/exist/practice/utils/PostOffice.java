@@ -1,13 +1,13 @@
 package exist.practice.utils;
 
-/*
+
 import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
-*/
+
 
 public class PostOffice
 {
-	/*
+	
     private MailSender mailSender;
  
 	public void setMailSender(MailSender mailSender) {
@@ -26,5 +26,5 @@ public class PostOffice
 		
 		System.out.println("--------------email sent------------------------");
 	}
-	*/
+
 }
