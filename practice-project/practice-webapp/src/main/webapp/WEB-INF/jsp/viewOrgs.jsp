@@ -13,6 +13,21 @@
 <head>
 <title>${ user.firstName } ${ user.lastName }</title>
 <link rel="stylesheet" type="text/css" href="resources/css/register.css" media="screen" />
+<script type="text/javascript" src="js/jquery-ui-1.8.14.custom/js/jquery-1.5.1.min.js"></script>
+
+<script type="text/javascript" src="js/jquery.tablesorter/jquery.tablesorter.min.js"></script> 
+<script type="text/javascript" src="js/jquery.tablesorter/addons/pager/jquery.tablesorter.pager.js"></script> 
+<link rel="stylesheet" type="text/css" href="js/jquery.tablesorter/themes/green/style.css" media="screen" />
+
+<script>
+	$(document).ready(function() 
+	    { 
+	        $("#myTable")
+	        .tablesorter({widthFixed: true, widgets: ['zebra']})
+	        .tablesorterPager({container: $("#pager")}); 
+	    } 
+	); 
+</script> 
 </head>
 <body>
 	<div id="wrapper">
@@ -44,14 +59,52 @@
 					</c:when>
 				</c:choose>
 				
+				<hr />
+				
 				<h4>Existing Organizations (using displaytag): </h4>
 				<s:url id="thisUrl"/>
-				<display:table id="item" name="${orgList}" requestURI="${thisUrl}" pagesize="2" sort="list" >
-					<display:column property="orgId" title="ID" />
-					<display:column property="orgName" title="Name"/>
+				<display:table 
+				 id="item" 
+				 name="${orgList}" 
+				 requestURI="${thisUrl}" 
+				 pagesize="2" 
+				 sort="list" >
+					<display:column property="orgId" title="ID" sortable="true" />
+					<display:column property="orgName" title="Name" sortable="true" />
 					<display:column title="Action">View ${item.orgId}</display:column>
 				</display:table>
 				
+			
+				<hr />
+
+				<h4>Existing Organizations (using displaytag & jquery-tablesorter): </h4>
+				<display:table 
+				 id="myTable" 
+				 name="${orgList}" 
+				 class="tablesorter" >
+					<display:column property="orgId" title="ID" />
+					<display:column property="orgName" title="Name" />
+					<display:column title="Action">View ${myTable.orgId}</display:column>
+				</display:table>
+				 	<div id="pager" class="pager">
+						<form>
+							<img src="js/jquery.tablesorter/addons/pager/icons/first.png" class="first"/>
+							<img src="js/jquery.tablesorter/addons/pager/icons/prev.png" class="prev"/>
+							<input type="text" class="pagedisplay"/>
+							<img src="js/jquery.tablesorter/addons/pager/icons/next.png" class="next"/>
+							<img src="js/jquery.tablesorter/addons/pager/icons/last.png" class="last"/>
+							items per page:
+							<select class="pagesize">
+								<option selected="selected"  value="10">10</option>
+								<option value="20">20</option>
+								<option value="30">30</option>
+								<option  value="40">40</option>
+							</select>
+						</form>
+					</div>
+
+				 
+				 	
 				
 			</div>
 		</section>
@@ -60,5 +113,8 @@
 		<footer>
 		</footer>
 	</div>
+	
+
+	
 </body>
 </html>
