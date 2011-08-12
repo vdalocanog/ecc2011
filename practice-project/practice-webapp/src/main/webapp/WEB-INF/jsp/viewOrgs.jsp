@@ -6,6 +6,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="display" uri="http://displaytag.sf.net" %>
 <!doctype html>
 <html>
 <meta charset="UTF-8">
@@ -42,6 +43,16 @@
 						</div>
 					</c:when>
 				</c:choose>
+				
+				<h4>Existing Organizations (using displaytag): </h4>
+				<s:url id="thisUrl"/>
+				<display:table id="item" name="${orgList}" requestURI="${thisUrl}" pagesize="2" sort="list" >
+					<display:column property="orgId" title="ID" />
+					<display:column property="orgName" title="Name"/>
+					<display:column title="Action">View ${item.orgId}</display:column>
+				</display:table>
+				
+				
 			</div>
 		</section>
 		<aside>

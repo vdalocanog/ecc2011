@@ -253,13 +253,6 @@ public class MainMultiController {
     @RequestMapping("/searchOrgs.htm")
     public ModelAndView searchOrgs(HttpServletRequest req, HttpServletResponse res) throws Exception {
         ModelAndView mav = new ModelAndView("searchOrgs");
- 
-        /*
-        List<Org> orgList = new ArrayList<Org>();
-        orgList = orgService.findAllOrg();
-        
-        mav.addObject( "orgList", orgList );
-        */
         
         return mav;
     }

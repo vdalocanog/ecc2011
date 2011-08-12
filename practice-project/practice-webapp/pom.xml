@@ -237,6 +237,13 @@
 			<artifactId>jackson-mapper-asl</artifactId>
 		</dependency>
 		
+		
+		<dependency>
+		    <groupId>displaytag</groupId>
+		    <artifactId>displaytag</artifactId>
+		</dependency>
+		 
+		 
 	</dependencies>
 
 	<build>
