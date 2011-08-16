@@ -16,7 +16,7 @@ import exist.practice.service.impl.OrgServiceImpl;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({ "/practiceProject-test-config.xml" })
 public class OrgServiceTest {
-    /*
+    
     private OrgService orgService;
     
     @Autowired
@@ -37,10 +37,10 @@ public class OrgServiceTest {
       System.out.println("BEGIN Fast test");
       
       Org org = new Org();
-      //org.setOrgId(1);
-      //org.setOrgName("yesss");
+      org.setOrgId(1);
+      org.setOrgName("yesss");
       System.out.println("-received: " + org);
-      Assert.assertTrue( orgService.addOrg(org) );
+      //Assert.assertTrue( orgService.addOrg(org) );
       
       System.out.println("END Fast test");
     }
@@ -53,5 +53,5 @@ public class OrgServiceTest {
        
        System.out.println("END Slow test");
     }
-    */
+    
 }
